@@ -1,0 +1,173 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #f7f4ef;
+  font-family: 'Montserrat', sans-serif;
+  color: #6b6661;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("./images/hero.png");
+  background-size: cover;
+  background-position: center 35%; /* 👈 esto es la clave */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* IMPORTANTE */
+  text-align: center;
+
+  padding-top: 140px; /* esto sube todo arriba */
+  position: relative;
+  overflow: hidden;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transform: translateY(-15px); /* ajuste visual premium */
+}
+
+.hero-logo img {
+  width: 560px;
+  max-width: 95%;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  margin: 25px 0 28px 0; 
+}
+
+
+.btn-outline {
+  border: 1px solid #c6a96b;
+  padding: 14px 38px;
+  text-decoration: none;
+  color: #5f584f;
+  font-size: 13px;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  transition: all 0.4s ease;
+}
+
+.btn-outline:hover {
+  background-color: #c6a96b;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+  display: flex;
+  padding: 120px 12%;
+  align-items: center;
+  gap: 100px;
+}
+
+.about-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.about-text p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+}
+
+/* ================= DIVIDER ================= */
+
+.divider {
+  border: none;
+  height: 1px;
+  background: #e3dbcf;
+  margin: 80px 12%;
+}
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio {
+  text-align: center;
+  padding: 100px 12%;
+}
+
+.portfolio h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.portfolio .subtitle {
+  font-style: italic;
+  margin: 20px 0 60px 0;
+  font-size: 18px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.portfolio-item.fade-up img {
+  width: 100%;
+  border-radius: 6px;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-item.fade-up img:hover {
+  transform: scale(1.03);
+}
+
+.portfolio-item.fade-up span {
+  display: block;
+  margin-top: 18px;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.portfolio-item {
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.portfolio-item img {
+  transition: transform 0.8s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}

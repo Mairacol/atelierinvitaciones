@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier Invitaciones</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="hero-logo">
+      <img src="images/logo-atelierinvitaciones.png" alt="Atelier Invitaciones">
+    </div>
+
+    <p class="hero-tagline">
+      La primera impresión de tu gran historia.
+    </p>
+
+    <a href="#portfolio" class="btn-outline">
+      Descubrir Atelier
+    </a>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+
+  <div class="about-text">
+    <h3>Más que simples<br>invitaciones digitales</h3>
+
+    <p>
+      Atelier Invitaciones nace de una novia que no quería una plantilla.
+      <br><br>
+      Quería esencia.<br>
+      Quería intención.<br>
+      Quería que cada detalle hablara.
+    </p>
+  </div>
+
+  <div class="about-image">
+    <img src="images/invitacion1.jpg" alt="Invitación digital elegante">
+  </div>
+
+</section>
+
+<hr class="divider">
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+
+<h3>Nuestras Colecciones</h3>
+<p class="subtitle">Cada diseño nace para acompañar un momento único.</p>
+
+
+  <div class="portfolio-grid">
+
+<div class="portfolio-item fade-up">
+      <img src="images/invitacion1.jpg" alt="">
+      <span>COLECCIÓN ÉTER</span>
+    </div>
+
+<div class="portfolio-item fade-up">
+      <img src="images/invitacion2.jpg" alt="">
+      <span>COLECCIÓN ALBA</span>
+    </div>
+
+<div class="portfolio-item fade-up">
+      <img src="images/invitacion3.jpg" alt="">
+      <span>COLECCIÓN INTENCIÓN</span>
+    </div>
+
+  </div>
+
+</section>
+<script>
+const elements = document.querySelectorAll(".fade-up");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.2 });
+
+elements.forEach(el => observer.observe(el));
+</script>
+
+
+</body>
+</html>
