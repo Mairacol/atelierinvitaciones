@@ -7,94 +7,176 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
 
+<!-- INTRO -->
+<div class="intro">
+  <img src="images/logo-atelierinvitaciones.png" alt="">
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+
+    <div class="nav-left">
+      <a href="#portfolio">Colecciones</a>
+      <a href="#proceso">Proceso</a>
+    </div>
+
+    <div class="nav-logo">
+      
+    </div>
+    <div class="nav-mobile">
+  <a href="#portfolio">Colecciones</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contacto</a>
+</div>
+
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-right">
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contacto</a>
+    </div>
+
+  </div>
+</header>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-
-    <div class="hero-logo">
-      <img src="images/logo-atelierinvitaciones.png" alt="Atelier Invitaciones">
-    </div>
-
-    <p class="hero-tagline">
-      La primera impresión de tu gran historia.
-    </p>
-
-    <a href="#portfolio" class="btn-outline">
-      Descubrir Atelier
-    </a>
-
+    <img src="images/logo-atelierinvitaciones.png" class="hero-logo" alt="">
+    <p class="hero-tagline">La primera impresión de tu gran historia.</p>
+    <a href="#portfolio" class="btn-outline">Descubrir Colecciones</a>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about">
-
-  <div class="about-text">
-    <h3>Más que simples<br>invitaciones digitales</h3>
-
-    <p>
-      Atelier Invitaciones nace de una novia que no quería una plantilla.
-      <br><br>
-      Quería esencia.<br>
-      Quería intención.<br>
-      Quería que cada detalle hablara.
-    </p>
-  </div>
-
-  <div class="about-image">
-    <img src="images/invitacion1.jpg" alt="Invitación digital elegante">
-  </div>
-
+<section id="about" class="fade-up">
+  <h2>Invitaciones digitales con intención</h2>
+  <p>
+    Atelier nace del deseo de crear piezas digitales que transmitan
+    elegancia, armonía y esencia.
+    <br><br>
+    Cada colección está pensada para acompañar momentos irrepetibles.
+  </p>
 </section>
-
-<hr class="divider">
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="portfolio">
-
-<h3>Nuestras Colecciones</h3>
-<p class="subtitle">Cada diseño nace para acompañar un momento único.</p>
-
+<section id="portfolio">
+  <h2>Nuestras Colecciones</h2>
 
   <div class="portfolio-grid">
-
-<div class="portfolio-item fade-up">
+    <div class="portfolio-item fade-up">
       <img src="images/invitacion1.jpg" alt="">
-      <span>COLECCIÓN ÉTER</span>
+      <div class="overlay"><span>COLECCIÓN ÉTER</span></div>
     </div>
 
-<div class="portfolio-item fade-up">
+    <div class="portfolio-item fade-up">
       <img src="images/invitacion2.jpg" alt="">
-      <span>COLECCIÓN ALBA</span>
+      <div class="overlay"><span>COLECCIÓN ALBA</span></div>
     </div>
 
-<div class="portfolio-item fade-up">
+    <div class="portfolio-item fade-up">
       <img src="images/invitacion3.jpg" alt="">
-      <span>COLECCIÓN INTENCIÓN</span>
+      <div class="overlay"><span>COLECCIÓN INTENCIÓN</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="proceso">
+  <h2>Un proceso editorial</h2>
+
+  <div class="process-grid">
+    <div class="process-card fade-up">
+      <span>01</span>
+      <h3>Dirección</h3>
+      <p>Seleccionamos la colección que represente tu estética.</p>
     </div>
 
+    <div class="process-card fade-up">
+      <span>02</span>
+      <h3>Desarrollo</h3>
+      <p>Personalizamos cada detalle con precisión editorial.</p>
+    </div>
+
+    <div class="process-card fade-up">
+      <span>03</span>
+      <h3>Presentación</h3>
+      <p>Recibís tu invitación web lista para compartir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="fade-up">
+  <h2>Qué opinan de Atelier</h2>
+
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p>"Elegancia absoluta. Superó todas nuestras expectativas."</p>
+      <span>— Martina & Tomás</span>
+    </div>
+    <div class="testimonial">
+      <p>"Cada detalle fue perfecto. Un nivel editorial increíble."</p>
+      <span>— Sofía & Lucas</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="fade-up">
+  <h2>Preguntas frecuentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      ¿Cuánto demora la entrega?
+      <span>+</span>
+    </button>
+    <div class="faq-answer">
+      El tiempo estimado es de 5 a 7 días hábiles.
+    </div>
   </div>
 
+  <div class="faq-item">
+    <button class="faq-question">
+      ¿Se puede personalizar todo?
+      <span>+</span>
+    </button>
+    <div class="faq-answer">
+      Sí, cada detalle se adapta a la esencia de tu evento.
+    </div>
+  </div>
 </section>
-<script>
-const elements = document.querySelectorAll(".fade-up");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.2 });
+<!-- CONTACT -->
+<section id="contact" class="fade-up">
+  <h2>Comencemos tu historia</h2>
 
-elements.forEach(el => observer.observe(el));
-</script>
+  <form class="luxury-form">
+    <input type="text" placeholder="Nombre de los novios">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Contanos sobre tu evento"></textarea>
+    <button type="submit" class="btn-outline">Solicitar información</button>
+  </form>
+</section>
 
+<footer class="footer">
+  © 2026 Atelier Invitaciones
+</footer>
 
+<a href="https://wa.me/549XXXXXXXXXX" class="whatsapp-btn" target="_blank">
+  WhatsApp
+</a>
+
+<script src="script.js"></script>
 </body>
 </html>
