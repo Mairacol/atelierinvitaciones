@@ -397,6 +397,80 @@ text-decoration: none;
   outline: none;
   border-color: #c6a96b;
 }
+.form-success {
+  margin-top: 30px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #3f3932;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+.form-success.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.submit-btn.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.flatpickr-calendar {
+  border: none;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flatpickr-day.selected {
+  background: #c6a96b;
+  border-color: #c6a96b;
+}
+/* === CALENDARIO LUJO === */
+
+.flatpickr-calendar {
+  background: #f6f2ec;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flatpickr-months {
+  background: transparent;
+}
+
+.flatpickr-current-month {
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.flatpickr-weekday {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #8f867b;
+}
+
+.flatpickr-day {
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.flatpickr-day:hover {
+  background: #e8e1d7;
+}
+
+.flatpickr-day.selected {
+  background: #c6a96b;
+  border-color: #c6a96b;
+  color: white;
+}
+
+.flatpickr-day.today {
+  border-color: #c6a96b;
+}
 
 /* ================= FOOTER ================= */
 

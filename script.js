@@ -60,3 +60,35 @@ if (menuToggle && mobileMenu) {
   });
 
 }
+const form = document.querySelector(".luxury-form");
+const successMessage = document.querySelector(".form-success");
+const submitBtn = document.querySelector(".submit-btn");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  submitBtn.classList.add("loading");
+  submitBtn.textContent = "ENVIANDO...";
+
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      form.reset();
+      submitBtn.textContent = "ENVIADO";
+      successMessage.classList.add("show");
+    } else {
+      submitBtn.textContent = "ERROR";
+    }
+  });
+});
+flatpickr("#fecha-evento", {
+  dateFormat: "d/m/Y",
+  minDate: "today"
+});

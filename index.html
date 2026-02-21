@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atelier Invitaciones</title>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -32,7 +32,7 @@
   <a href="#portfolio">Colecciones</a>
   <a href="#proceso">Proceso</a>
   <a href="#faq">FAQ</a>
-  <a href="#contact">Contacto</a>
+  <a href="#contacto">Contacto</a>
 </div>
 
     <div class="menu-toggle">
@@ -43,7 +43,7 @@
 
     <div class="nav-right">
       <a href="#faq">FAQ</a>
-      <a href="#contact">Contacto</a>
+      <a href="#contacto">Contacto</a>
     </div>
 
   </div>
@@ -158,14 +158,58 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade-up">
-  <h2>Comencemos tu historia</h2>
+<section id="contacto">
+  <h2>Consulta Privada</h2>
 
-  <form class="luxury-form">
-    <input type="text" placeholder="Nombre de los novios">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Contanos sobre tu evento"></textarea>
-    <button type="submit" class="btn-outline">Solicitar información</button>
+  <form 
+    class="luxury-form"
+    action="https://formsubmit.co/contacto.atelierinvitaciones@gmail.com" 
+    method="POST"
+  >
+    
+    <!-- Configuración interna -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nueva consulta desde Atelier">
+    <input type="hidden" name="_template" value="table">
+
+    <!-- Campos visibles -->
+    <input 
+      type="text" 
+      name="Nombre" 
+      placeholder="Nombre Completo" 
+      required
+    >
+    <input 
+  type="tel" 
+  name="Telefono" 
+  placeholder="Teléfono"
+>
+
+    <input 
+      type="email" 
+      name="Email" 
+      placeholder="Email" 
+      required
+    >
+   <input type="text" name="Fecha" placeholder="Fecha del evento" id="fecha-evento">
+
+    <textarea 
+      name="Mensaje" 
+      placeholder="Describí tu evento"
+      rows="5"
+      required
+    ></textarea>
+
+    <button type="submit" class="btn-outline submit-btn">
+      ENVIAR CONSULTA
+    </button>
+
+    <!-- Mensaje de éxito -->
+    <p class="form-success">
+      Gracias por tu mensaje.  
+      A la brevedad nos pondremos en contacto para comenzar a diseñar tu historia.
+    </p>
+
   </form>
 </section>
 
@@ -176,7 +220,7 @@
 <a href="https://wa.me/549XXXXXXXXXX" class="whatsapp-btn" target="_blank">
   WhatsApp
 </a>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="script.js"></script>
 </body>
 </html>
