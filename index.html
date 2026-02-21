@@ -191,8 +191,10 @@
       placeholder="Email" 
       required
     >
-   <input type="text" name="Fecha" placeholder="Fecha del evento" id="fecha-evento">
-
+<div class="form-group fecha-group">
+  <input type="text" id="fecha-evento" placeholder="Fecha del evento">
+  <button type="button" id="clear-date">×</button>
+</div>
     <textarea 
       name="Mensaje" 
       placeholder="Describí tu evento"
@@ -221,6 +223,7 @@
   WhatsApp
 </a>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

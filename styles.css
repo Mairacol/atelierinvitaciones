@@ -427,51 +427,43 @@ text-decoration: none;
   background: #c6a96b;
   border-color: #c6a96b;
 }
-/* === CALENDARIO LUJO === */
+/* ===== CALENDARIO ATELIER ===== */
 
-.flatpickr-calendar {
-  background: #f6f2ec;
+
+.form-group {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
   border: none;
-  border-radius: 14px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
-  font-family: 'Montserrat', sans-serif;
-}
-
-.flatpickr-months {
+  border-bottom: 1px solid #cfc7bb;
   background: transparent;
+  padding: 12px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  outline: none;
 }
 
-.flatpickr-current-month {
-  font-weight: 400;
-  letter-spacing: 2px;
-  font-size: 14px;
+#clear-date {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #c6a96b;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 
-.flatpickr-weekday {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #8f867b;
+#clear-date:hover {
+  opacity: 1;
 }
-
-.flatpickr-day {
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.flatpickr-day:hover {
-  background: #e8e1d7;
-}
-
-.flatpickr-day.selected {
-  background: #c6a96b;
-  border-color: #c6a96b;
-  color: white;
-}
-
-.flatpickr-day.today {
-  border-color: #c6a96b;
-}
-
 /* ================= FOOTER ================= */
 
 .footer {

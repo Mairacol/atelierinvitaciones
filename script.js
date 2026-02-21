@@ -88,7 +88,14 @@ form.addEventListener("submit", function(e) {
     }
   });
 });
-flatpickr("#fecha-evento", {
-  dateFormat: "d/m/Y",
+
+const calendar = flatpickr("#fecha-evento", {
+  locale: "es",
+  dateFormat: "d M Y",
+  allowInput: true,
   minDate: "today"
+});
+
+document.getElementById("clear-date").addEventListener("click", function() {
+  calendar.clear();
 });
