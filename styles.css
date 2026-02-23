@@ -191,20 +191,19 @@ h2 {
 
 .hero {
   min-height: 100vh;
-  padding: 140px 20px 100px; /* aire arriba y abajo */
-
   background:
-    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.15))
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
     url("./images/hero.png");
-
   background-size: cover;
   background-position: center;
-
+  background-repeat: no-repeat;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 180px;
   text-align: center;
 }
+
 
 .hero-content {
   max-width: 800px;
