@@ -275,49 +275,142 @@ text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 15px 35px rgba(198,169,107,0.18);
 }
-/* ================= PORTFOLIO ================= */
+/* PORTFOLIO REFORMULADO */
+/* --- PORTFOLIO V2 (ASIMÉTRICO) --- */
+.portfolio-luxe { padding: 180px 8% 100px; }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 70px;
+.section-header { text-align: left; margin-bottom: 100px; }
+.section-header .subtitle {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 6px;
+  color: #c6a96b; display: block; margin-bottom: 15px;
 }
 
-.portfolio-item {
-  position: relative;
-  overflow: hidden;
+.portfolio-grid-v2 {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px; align-items: start;
 }
 
-.portfolio-item img {
-  width: 100%;
-  display: block;
-  transition: transform 1.8s cubic-bezier(.19,1,.22,1);
+/* Efecto de alturas Dior */
+.card-tall { margin-top: 0; }
+.card-short { margin-top: 120px; }
+.card-medium { margin-top: 60px; }
+
+.portfolio-card { text-decoration: none; position: relative; }
+.image-container {
+  overflow: hidden; aspect-ratio: 4/5; background: #f4f4f4; margin-bottom: 30px;
+}
+.image-container img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.5s ease; filter: sepia(15%) contrast(1.05);
+}
+.portfolio-card:hover img { transform: scale(1.08); }
+
+.card-meta { display: flex; gap: 20px; align-items: flex-start; }
+.card-meta .number {
+  font-family: 'Cormorant Garamond'; font-size: 14px;
+  color: #c6a96b; font-style: italic;
+}
+.card-titles .tag {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #888;
+}
+.card-titles h3 {
+  font-family: 'Cormorant Garamond'; font-size: 24px;
+  font-weight: 400; color: #333; margin-top: 5px;
 }
 
-.portfolio-item:hover img {
-  transform: scale(1.07);
+/* --- DETALLE V2 (ESTILO BOUTIQUE) --- */
+.detail-v2 { padding: 180px 8%; border-top: 1px solid rgba(198, 169, 107, 0.1); }
+
+.detail-container {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 350px 1fr; gap: 80px;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.3) 40%,
-    transparent 70%
-  );
-  display: flex;
-  align-items: flex-end;
-  padding: 60px;
+.detail-aside { position: sticky; top: 120px; height: fit-content; text-align: left; }
+.aside-label { color: #c6a96b; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; }
+.aside-title { 
+  font-size: 72px !important; margin: 20px 0 !important; 
+  text-align: left !important; line-height: 0.9 !important;
+}
+.aside-desc { font-size: 15px; line-height: 1.8; color: #888; font-weight: 300; }
+
+.detail-main-image { grid-column: 2; margin-bottom: 80px; }
+.detail-main-image img { width: 100%; max-height: 700px; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+
+.detail-content-grid { grid-column: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; }
+.content-tag { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 25px; color: #c6a96b; }
+.content-col p { font-size: 16px; line-height: 1.9; color: #555; font-weight: 300; }
+
+.luxe-list { list-style: none; padding: 0; }
+.luxe-list li {
+  font-size: 12px; text-transform: uppercase; margin-bottom: 15px;
+  letter-spacing: 1.5px; color: #555; position: relative; padding-left: 25px;
+}
+.luxe-list li::before {
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 15px; height: 1px; background: #c6a96b;
 }
 
-.overlay span {
-  color: white;
+.detail-footer { grid-column: 2; text-align: left; margin-top: 60px; }
+.btn-minimal {
+  text-decoration: none; color: #333; font-size: 11px;
+  letter-spacing: 4px; text-transform: uppercase;
+  border-bottom: 1px solid #c6a96b; padding-bottom: 10px;
+  transition: 0.4s ease;
+}
+.btn-minimal:hover { color: #c6a96b; letter-spacing: 6px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .portfolio-grid-v2 { grid-template-columns: 1fr; gap: 80px; }
+  .card-short, .card-medium { margin-top: 0; }
+  .detail-container { grid-template-columns: 1fr; }
+  .detail-aside, .detail-main-image, .detail-content-grid, .detail-footer { grid-column: 1; position: relative; top: 0; }
+  .aside-title { font-size: 50px !important; }
+}
+
+/* ===== DETALLES DE PLANES ===== */
+/* DETALLES DE PLANES REFINADOS */
+.collection-detail {
+  padding: 150px 20px; /* Más espacio vertical */
+  border-bottom: 1px solid rgba(198, 169, 107, 0.1); /* Separación sutil entre planes */
+}
+
+.collection-hero {
+  max-height: 600px;
+  margin-bottom: 80px;
+}
+
+.collection-text h3 {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 70px;
+  letter-spacing: -1px;
+}
+
+.collection-block .label {
+  font-size: 11px;
   letter-spacing: 4px;
-  font-size: 12px;
+  border-left: 2px solid #c6a96b; /* Una pequeña marca vertical de diseño */
+  padding-left: 15px;
+  margin-bottom: 20px;
 }
 
+.collection-block p {
+  font-size: 17px;
+  color: #555;
+  font-weight: 300;
+  padding-left: 17px; /* Alineado con la marca del label */
+}
+
+/* El botón de "Ver invitación" debe ser más exclusivo */
+.collection-text .btn-outline {
+  display: block;
+  width: fit-content;
+  margin: 60px auto 0;
+  padding: 20px 60px;
+  font-weight: 400;
+}
 /* ================= PROCESS ================= */
 
 .process-grid {
