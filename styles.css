@@ -868,3 +868,56 @@ text-decoration: none;
     font-size: 14px;
   }
 }
+@media (max-width: 900px) {
+  /* En lugar de centrar, mantenemos la alineación a la izquierda pero con aire */
+  .detail-v2 {
+    padding: 80px 10%;
+  }
+
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* El título sigue siendo el protagonista: grande pero sin desbordar */
+  .aside-title {
+    font-size: 54px !important;
+    text-align: left !important;
+    line-height: 0.85 !important;
+    letter-spacing: -2px !important;
+    margin-top: 10px !important;
+  }
+
+  /* La imagen: le quitamos el exceso de sombra para que no se vea pesada */
+  .detail-main-image {
+    margin: 20px 0;
+  }
+
+  .detail-main-image img {
+    max-height: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  }
+
+  /* Mantenemos las dos columnas de texto solo si hay espacio, 
+     sino las dejamos fluir con elegancia */
+  .detail-content-grid {
+    display: block; /* Una sola columna para que el texto respire */
+  }
+
+  .content-col {
+    margin-bottom: 50px; /* Espacio editorial entre bloques */
+  }
+
+  .content-col p {
+    font-size: 16px; /* Mantener el tamaño para que se sienta Premium */
+    line-height: 1.8;
+    max-width: 100%;
+  }
+
+  /* El botón de abajo, lo dejamos pegado a la izquierda como el resto */
+  .detail-footer {
+    text-align: left;
+    margin-top: 0;
+  }
+}
