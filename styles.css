@@ -921,3 +921,16 @@ text-decoration: none;
     margin-top: 0;
   }
 }
+/* Agrégalo a tu CSS general */
+.detail-main-image {
+  overflow: hidden; /* Corta el exceso */
+}
+
+.detail-main-image img {
+  transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Si usas JS para el fade-up, puedes hacer que la imagen se agrande un poco */
+.fade-up.visible .detail-main-image img {
+  transform: scale(1.05);
+}
