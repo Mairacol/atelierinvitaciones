@@ -116,6 +116,30 @@ h2 {
   position: relative;
   transition: opacity 0.4s ease;
 }
+/* ================= ABOUT ================= */
+
+#about {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
+}
+
+#about h2 {
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+}
+
+#about p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 1px;
+  color: #6b6661;
+  max-width: 650px;
+  margin: 0 auto;
+}
 
 .nav a::after {
   content: "";
@@ -235,7 +259,7 @@ text-decoration: none;
   border-radius: 50px;
 
   font-size: 12px;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   font-family: 'Montserrat', sans-serif;
 
   color: #3f3932;
@@ -317,6 +341,164 @@ text-decoration: none;
 .process-card p {
   font-size: 18px;
   line-height: 1.7;
+}
+/* ================= ATELIER DIFERENCIAL ================= */
+
+.atelier-diferencial {
+  padding: 200px 12%;
+  text-align: center;
+  background: linear-gradient(to bottom, #f7f4ef, #f3efe9);
+}
+
+.atelier-diferencial h2 {
+  max-width: 900px;
+  margin: 0 auto 120px auto;
+}
+
+.atelier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.atelier-grid div {
+  position: relative;
+  padding-top: 40px;
+}
+
+/* línea editorial superior sutil */
+.atelier-grid div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: rgba(198,169,107,0.6);
+}
+
+/* títulos */
+.atelier-grid h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 25px;
+  color: #3f3932;
+  letter-spacing: 0.5px;
+}
+
+/* textos */
+.atelier-grid p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 1px;
+  color: #6b6661;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ================= EXPERIENCIA ================= */
+
+.experiencia {
+  padding: 120px 20px;
+  text-align: center;
+  background: #f3efe9;
+}
+
+.experiencia h2 {
+  margin-bottom: 70px;
+}
+
+.experiencia-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.experiencia-item {
+  max-width: 260px;
+}
+
+.experiencia-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #5f584f;
+}
+
+.experiencia-item p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.7;
+  color: #6b6661;
+}
+
+/* ================= CUPOS ================= */
+
+.cupos {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b89b5e;
+  margin-bottom: 40px;
+}
+.manifesto {
+  padding: 180px 12%;
+  background: #f3efe9;
+}
+
+.manifesto-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.manifesto-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #3f3932;
+}
+
+.manifesto-line.emphasis {
+  font-size: 42px;
+  color: #2f2a25;
+}
+
+.manifesto-text {
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  color: #6b6661;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .manifesto-line {
+    font-size: 28px;
+  }
+
+  .manifesto-line.emphasis {
+    font-size: 32px;
+  }
+
+  .experiencia-grid {
+    gap: 40px;
+  }
+
 }
 
 /* ================= TESTIMONIALS ================= */
@@ -466,11 +648,28 @@ text-decoration: none;
 /* ================= FOOTER ================= */
 
 .footer {
-  padding: 80px;
   text-align: center;
-  font-size: 12px;
-  letter-spacing: 3px;
+  padding: 80px 20px 60px;
 }
+
+.social-icon {
+  font-size: 18px;
+  color: #6b6661;
+  display: inline-block;
+  margin-bottom: 30px;
+  transition: 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #c6a96b;
+}
+
+.copyright {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #8a857f;
+}
+
 
 /* ================= WHATSAPP ================= */
 
@@ -557,5 +756,22 @@ text-decoration: none;
   .btn-outline {
     width: 85%;
     padding: 18px 0;
+  }
+
+  .atelier-diferencial {
+    padding: 160px 10%;
+  }
+
+  .atelier-grid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+  .atelier-grid h3 {
+    font-size: 26px;
+  }
+
+  .atelier-grid p {
+    font-size: 14px;
   }
 }

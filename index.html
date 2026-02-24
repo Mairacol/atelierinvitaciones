@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atelier Invitaciones</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -60,18 +61,42 @@
 
 <!-- ABOUT -->
 <section id="about" class="fade-up">
-  <h2>Invitaciones digitales con intención</h2>
+  <h2>Invitaciones web diseñadas a medida</h2>
   <p>
-    Atelier nace del deseo de crear piezas digitales que transmitan
-    elegancia, armonía y esencia.
+    Diseñamos invitaciones web a medida.
+Sin fórmulas. Sin repeticiones.
+Solo identidad.
     <br><br>
-    Cada colección está pensada para acompañar momentos irrepetibles.
+
   </p>
 </section>
+<!---- DIFERENCIAL --->
+<section class="atelier-diferencial fade-up">
+  <h2>Personalización absoluta</h2>
+
+  <div class="atelier-grid">
+    <div>
+      <h3>Desde cero</h3>
+      <p>Nada aquí se repite.</p>
+    </div>
+
+    <div>
+      <h3>Identidad propia</h3>
+      <p>Colores, tipografías, estructura y ritmo visual pensados exclusivamente para tu evento.</p>
+    </div>
+
+    <div>
+      <h3>Presencia y emoción</h3>
+      <p>Una experiencia digital elegante que genera impacto desde el primer clic.</p>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-  <h2>Nuestras Colecciones</h2>
+  <h2>Colecciones</h2>
 
   <div class="portfolio-grid">
     <div class="portfolio-item fade-up">
@@ -93,29 +118,28 @@
 
 <!-- PROCESS -->
 <section id="proceso">
-  <h2>Un proceso editorial</h2>
+  <h2>Nuestro método</h2>
 
   <div class="process-grid">
     <div class="process-card fade-up">
       <span>01</span>
-      <h3>Dirección</h3>
-      <p>Seleccionamos la colección que represente tu estética.</p>
+      <h3>Escuchamos</h3>
+      <p>Comprendemos tu evento, tu estilo y lo que querés transmitir.</p>
     </div>
 
     <div class="process-card fade-up">
       <span>02</span>
-      <h3>Desarrollo</h3>
-      <p>Personalizamos cada detalle con precisión editorial.</p>
+      <h3>Diseñamos</h3>
+      <p>Creamos una invitación web personalizada, cuidando cada detalle visual y funcional.</p>
     </div>
 
     <div class="process-card fade-up">
       <span>03</span>
-      <h3>Presentación</h3>
-      <p>Recibís tu invitación web lista para compartir.</p>
+      <h3>Entregamos</h3>
+      <p>Recibís una experiencia digital lista para compartir, única y alineada a tu celebración.</p>
     </div>
   </div>
 </section>
-
 <!-- TESTIMONIOS -->
 <section class="fade-up">
   <h2>Qué opinan de Atelier</h2>
@@ -142,7 +166,28 @@
       <span>+</span>
     </button>
     <div class="faq-answer">
-      El tiempo estimado es de 5 a 7 días hábiles.
+   El tiempo de entrega varía según la complejidad del proyecto.
+Cada invitación se diseña de forma personalizada, por lo que el plazo se define al confirmar la propuesta.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      ¿Con cuánta anticipación debo reservar?
+      <span>+</span>
+    </button>
+    <div class="faq-answer">
+      Recomendamos reservar con al menos 2 meses de anticipación para asegurar disponibilidad y una experiencia de diseño única.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      ¿Trabajan con plantillas prediseñadas?
+      <span>+</span>
+    </button>
+    <div class="faq-answer">
+      No. Cada invitación se diseña desde cero, respetando la identidad y estética única de cada evento.
     </div>
   </div>
 
@@ -152,9 +197,31 @@
       <span>+</span>
     </button>
     <div class="faq-answer">
-      Sí, cada detalle se adapta a la esencia de tu evento.
+      Sí. Colores, tipografías, estructura y cada detalle visual se definen especialmente para tu celebración.
     </div>
   </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      ¿Cómo se comparte la invitación?
+      <span>+</span>
+    </button>
+    <div class="faq-answer">
+      Se entrega mediante un enlace personalizado listo para enviar por WhatsApp, email o redes sociales.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      ¿Incluye confirmación de asistencia (RSVP)?
+      <span>+</span>
+    </button>
+    <div class="faq-answer">
+      Sí.
+    </div>
+  </div>
+  </div>
+
 </section>
 
 <!-- CONTACT -->
@@ -214,10 +281,18 @@
 
   </form>
 </section>
-
 <footer class="footer">
-  © 2026 Atelier Invitaciones
+    <div class="footer-social">
+    <a href="https://instagram.com/tuusuario" target="_blank" class="social-icon">
+  <i class="fab fa-instagram"></i>
+</a>
+  <div class="footer-inner">
+    <p>© 2026 Atelier Invitaciones</p>
+
+    </div>
+  </div>
 </footer>
+
 
 <a href="https://wa.me/549XXXXXXXXXX" class="whatsapp-btn" target="_blank">
   WhatsApp
