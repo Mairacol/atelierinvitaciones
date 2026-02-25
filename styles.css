@@ -275,49 +275,133 @@ text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 15px 35px rgba(198,169,107,0.18);
 }
-/* PORTFOLIO REFORMULADO */
-/* --- PORTFOLIO V2 (ASIMÉTRICO) --- */
-.portfolio-luxe { padding: 180px 8% 100px; }
+/* ============================= */
+/* PORTFOLIO MINIMAL EDITORIAL */
+/* ============================= */
 
-.section-header { text-align: left; margin-bottom: 100px; }
-.section-header .subtitle {
-  font-size: 10px; text-transform: uppercase; letter-spacing: 6px;
-  color: #c6a96b; display: block; margin-bottom: 15px;
+.portfolio-luxe {
+padding: 160px 4% 140px;  background: #fcfaf7;
 }
+
+.section-header {
+  margin-bottom: 110px;
+}
+
+.section-header .subtitle {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #c6a96b;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
+/* GRID */
 
 .portfolio-grid-v2 {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 40px; align-items: start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
 }
 
-/* Efecto de alturas Dior */
-.card-tall { margin-top: 0; }
-.card-short { margin-top: 120px; }
-.card-medium { margin-top: 60px; }
+/* CARD BASE */
 
-.portfolio-card { text-decoration: none; position: relative; }
+.portfolio-card {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: transform 1s cubic-bezier(.19,1,.22,1),
+              opacity .6s ease;
+}
+
+/* IMAGE */
+
 .image-container {
-  overflow: hidden; aspect-ratio: 4/5; background: #f4f4f4; margin-bottom: 30px;
+  margin-bottom: 40px;
 }
+
 .image-container img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 1.5s ease; filter: sepia(15%) contrast(1.05);
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 35px 70px rgba(0,0,0,0.08);
 }
-.portfolio-card:hover img { transform: scale(1.08); }
 
-.card-meta { display: flex; gap: 20px; align-items: flex-start; }
+/* META */
+
+.card-meta {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
 .card-meta .number {
-  font-family: 'Cormorant Garamond'; font-size: 14px;
-  color: #c6a96b; font-style: italic;
-}
-.card-titles .tag {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #888;
-}
-.card-titles h3 {
-  font-family: 'Cormorant Garamond'; font-size: 24px;
-  font-weight: 400; color: #333; margin-top: 5px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #c6a96b;
 }
 
+.card-titles .tag {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.card-titles h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 6px;
+  color: #222;
+  transition: letter-spacing .6s ease;
+}
+
+.portfolio-card:hover .card-titles h3 {
+  letter-spacing: 1px;
+}
+
+/* ============================= */
+/* EDITORIAL EXPANSION EFFECT */
+/* ============================= */
+
+/* Cuando el mouse entra al grid, todas se atenúan */
+.portfolio-grid-v2:hover .portfolio-card {
+  opacity: 0.4;
+}
+
+/* La activa crece fuerte */
+.portfolio-grid-v2 .portfolio-card:hover {
+  transform: scale(1.20);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .portfolio-grid-v2 {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+  /* En mobile desactivamos expansión */
+  .portfolio-grid-v2:hover .portfolio-card {
+    opacity: 1;
+  }
+
+  .portfolio-grid-v2 .portfolio-card:hover {
+    transform: none;
+  }
+}
 /* --- DETALLE V2 (ESTILO BOUTIQUE) --- */
 .detail-v2 { padding: 180px 8%; border-top: 1px solid rgba(198, 169, 107, 0.1); }
 
