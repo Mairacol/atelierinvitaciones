@@ -302,7 +302,27 @@ padding: 160px 4% 140px;  background: #fcfaf7;
   font-weight: 400;
   color: #1a1a1a;
 }
+.price-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
 
+.price-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
 /* GRID */
 
 .portfolio-grid-v2 {
