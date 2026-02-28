@@ -958,32 +958,83 @@ padding: 160px 4% 140px;  background: #fcfaf7;
 #clear-date:hover {
   opacity: 1;
 }
-/* ================= FOOTER ================= */
+/* ===== FOOTER ATELIER BOUTIQUE - WHITE VERSION ===== */
 
-.footer {
+.atelier-footer {
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 100px 20px 70px;
   text-align: center;
-  padding: 80px 20px 60px;
+  border-top: 1px solid rgba(198, 169, 107, 0.15);
 }
 
-.social-icon {
-  font-size: 18px;
-  color: #6b6661;
-  display: inline-block;
-  margin-bottom: 30px;
+.footer-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.footer-logo {
+  width: 90px;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* Claim */
+.footer-claim {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c6a96b;
+  margin-bottom: 40px;
+}
+
+/* Contacto */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 50px;
+}
+
+.footer-contact a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 3px;
   transition: 0.3s ease;
 }
 
-.social-icon:hover {
+.footer-contact a:hover {
   color: #c6a96b;
+  letter-spacing: 4px;
 }
 
-.copyright {
-  font-size: 13px;
+/* Firma */
+.footer-signature {
+  font-size: 11px;
+  color: #999;
   letter-spacing: 1px;
-  color: #8a857f;
 }
 
+/* Responsive Desktop */
+@media (min-width: 768px) {
 
+  .atelier-footer {
+    padding: 120px 20px 80px;
+  }
+
+  .footer-logo {
+    width: 80px;
+  }
+
+  .footer-contact {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+
+}
 /* ================= WHATSAPP ================= */
 
 .whatsapp-btn {
