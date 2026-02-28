@@ -577,7 +577,9 @@ padding: 160px 4% 140px;  background: #fcfaf7;
   transition: 0.4s ease;
 }
 .btn-minimal:hover { color: #c6a96b; letter-spacing: 6px; }
-
+#premium .aside-title {
+  font-size: 78px !important;
+}
 /* Responsive */
 @media (max-width: 1024px) {
   .portfolio-grid-v2 { grid-template-columns: 1fr; gap: 80px; }
