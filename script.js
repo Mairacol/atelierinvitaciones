@@ -99,3 +99,16 @@ const calendar = flatpickr("#fecha-evento", {
 document.getElementById("clear-date").addEventListener("click", function() {
   calendar.clear();
 });
+
+  const origenSection = document.querySelector('.atelier-origen');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        origenSection.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(origenSection);
+
