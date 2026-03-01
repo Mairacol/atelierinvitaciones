@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /bodacarmenyluis/
+Disallow: /sofiaylucas/
+Disallow: /mairaytomas/
+
+Sitemap: https://atelierinvitaciones.com/sitemap.xml
