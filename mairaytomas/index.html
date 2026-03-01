@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maira & Tomás — Invitación</title>
+  <meta name="description" content="Invitación minimalista blanco/negro con RSVP, playlist y detalles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><text y=%2250%25%22 x=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2242%22>♡</text></svg>">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <style>
+    /* ===== Paleta base ===== */
+    :root{
+      --ink:#1b1b1b; --muted:#6b6b6b; --line:#e9e9e9;
+      --bg:#fff; --bg-soft:#f7f7f7; --nav:#111;
+      --shadow:0 12px 28px rgba(0,0,0,.06);
+
+      /* Textura (se ajusta con media queries abajo) */
+      --grain-alpha:.02; 
+      --grain-size:6px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0; color:var(--ink); background:var(--bg);
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+
+      /* Grain sutil */
+      background-image: radial-gradient(rgba(0,0,0,var(--grain-alpha)) 1px, transparent 1px);
+      background-size: var(--grain-size) var(--grain-size);
+    }
+    /* Mobile → grain más suave */
+    @media (max-width:768px){
+      :root{ --grain-alpha:.012; --grain-size:8px; }
+    }
+    /* Desktop → grain medio */
+    @media (min-width:769px){
+      :root{ --grain-alpha:.02; --grain-size:6px; }
+    }
+    /* Vignette sutil */
+    body::before{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:radial-gradient(130% 90% at 50% 10%, transparent 55%, rgba(0,0,0,.06) 100%);
+    }
+
+    /* ===== NAV ===== */
+    .nav{position:sticky; top:0; z-index:70; background:var(--nav); color:#fff; border-bottom:1px solid #0d0d0d}
+    .nav .wrap{max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:8px 16px}
+    .brand{font-family:"Playfair Display",serif; letter-spacing:.25em; font-size:12px; color:#fff; text-decoration:none}
+    .menu{display:flex; gap:18px; align-items:center}
+    .menu a{color:#fff; text-decoration:none; opacity:.85; text-transform:uppercase; letter-spacing:.18em; font-size:12px; padding:4px 0; border-bottom:1px solid transparent}
+    .menu a:hover{opacity:1}
+    .menu a.active{opacity:1; border-bottom-color:#fff}
+    .burger{display:none; width:38px; height:28px; border:1px solid #fff3; border-radius:6px; background:transparent; color:#fff}
+    .burger:before{content:"≡"; display:block; text-align:center; font-size:18px; line-height:26px}
+    @media (max-width:780px){
+      .burger{display:block}
+      .menu{display:none; position:absolute; top:44px; right:10px; background:#111; padding:10px 14px; border:1px solid #222; border-radius:10px}
+      .menu.open{display:flex; flex-direction:column; gap:10px}
+    }
+
+    /* ===== HERO ===== */
+    header.hero{position:relative; min-height:72svh; display:grid; place-items:center; text-align:center; color:#fff; isolation:isolate}
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+      z-index:-2; filter:grayscale(30%) contrast(1.05); transform:translateZ(0);
+    }
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.46), rgba(0,0,0,.34)); z-index:-1}
+    .hero .inner{max-width:980px; padding:60px 18px}
+    .kicker{letter-spacing:.28em; text-transform:uppercase; font-size:12px; opacity:.95}
+    .names{font-family:"Playfair Display",serif; font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:clamp(38px,7.6vw,80px); margin:.35em 0 .15em; line-height:1.04}
+    .amp{font-family:"Great Vibes",cursive; font-weight:400; text-transform:none; letter-spacing:0; font-size:1.1em}
+    .date{opacity:.95; font-size:clamp(14px,2.6vw,18px); letter-spacing:.08em; text-transform:uppercase}
+    .script{margin:26px auto 10px; color:#fff; opacity:.96; font-family:"Great Vibes",cursive; font-size:clamp(24px,5.2vw,42px)}
+
+    /* ===== Secciones ===== */
+    section.full{padding:86px 18px}
+    .block{max-width:900px; margin:0 auto; text-align:center}
+    h2{font-family:"Playfair Display",serif; font-weight:600; font-size:clamp(22px,4.2vw,30px); letter-spacing:.06em; text-transform:uppercase; margin:0 0 6px}
+    p{margin:0} .muted{color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin:22px auto; width:min(760px,90%)}
+
+    /* Tarjetas “papel” con grain propio */
+    .paper{
+      background:
+        radial-gradient(rgba(0,0,0,.015) 1px, transparent 1px),
+        #fff;
+      background-size:8px 8px;
+      border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow)
+    }
+
+    /* Grids */
+    .grid{display:grid; gap:28px}
+    @media(min-width:900px){.grid{grid-template-columns:1.1fr 1fr}}
+
+    /* Countdown */
+    .countdown{display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:18px 0}
+    .dd{min-width:84px; text-align:center}
+    .num{font-family:"Playfair Display",serif; font-size:clamp(28px,5vw,40px); font-weight:600}
+    .lab{font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.9}
+
+    /* Links acción */
+    .actions{display:flex; gap:22px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:18px}
+    .link{appearance:none; background:transparent; border:0; padding:0; color:var(--ink); text-decoration:none; font-weight:600; letter-spacing:.06em; border-bottom:1px solid var(--ink); line-height:1.6}
+    .link:hover{opacity:.8} .link.dark{color:#fff; border-color:#fff}
+
+    /* Map/iframes */
+    iframe{width:100%; height:500px; border:1px solid var(--line); border-radius:12px; background:#fff}
+
+    /* Regalos extra */
+    .hr-fine{height:1px;background:var(--line);border:0;margin:14px 0}
+    .gift-head{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:6px}
+    .gift-head svg{width:18px;height:18px}
+    .copyline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .pill{background:var(--bg-soft);padding:4px 8px;border-radius:8px;border:1px solid var(--line)}
+    .mini{font-size:12px;color:var(--muted)}
+    .qrwrap{display:grid;place-items:center}
+    .qr{width:160px;height:160px;border-radius:10px;border:1px solid var(--line)}
+    
+
+    /* FOTOS (Drive) */
+    .drive-grid{display:grid; gap:18px; align-items:start}
+    @media(min-width:900px){.drive-grid{grid-template-columns:1.2fr .8fr}}
+    #drive-url{
+      width:100%; padding:12px 14px; border:1px solid var(--line);
+      border-radius:10px; background:#fff; font:inherit; color:var(--ink);
+    }
+    #drive-open[aria-disabled="true"], #drive-wa[aria-disabled="true"]{opacity:.5; pointer-events:none}
+
+    /* Toast */
+    .toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(20px); background:#111; color:#fff; padding:10px 14px; border-radius:999px; font-size:14px; opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease; z-index:99}
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+
+    /* To Top */
+    .totop{position:fixed; right:16px; bottom:18px; z-index:90; opacity:0; transform:translateY(10px); transition:opacity .25s, transform .25s}
+    .totop a{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; background:#111; color:#fff; text-decoration:none; font-size:18px; border:1px solid #000}
+    .totop.show{opacity:1; transform:translateY(0)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); text-align:center; color:var(--muted); font-size:12px; padding:28px 0 40px}
+
+    @media (max-width:560px){ header.hero{min-height:68svh} iframe{height:380px} }
+    @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
+  /* Ocultar barra de scroll SOLO en mobile */
+@media (max-width:780px){
+
+  html, body{
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE y Edge antiguos */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar{
+    display: none;                /* Chrome, Safari, Edge */
+  }
+
+}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" aria-label="Navegación">
+    <div class="wrap">
+      <a class="brand" href="#inicio">M + T</a>
+      <button class="burger" id="burger" aria-label="Abrir menú"></button>
+      <div class="menu" id="menu">
+        <a href="#inicio">Bienvenidos</a>
+        <a href="#sec-detalles">Eventos</a>
+        <a href="#sec-rsvp">Confirmá asistencia</a>
+        <a href="#sec-regalos">Regalos</a>
+        <a href="#sec-canciones">Playlist</a>
+        <a href="#sec-fotos">Fotos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="inicio">
+    <div class="inner" data-aos="fade-up">
+      <div class="kicker">Invitación</div>
+      <h1 class="names">Maira <span class="amp">&</span> Tomás</h1>
+      <div class="script">Nuestra Boda</div>
+      <p class="date">¡Nos casamos! — 20 FEBRERO 2027 — 18:00</p>
+      <div class="countdown" aria-live="polite">
+        <div class="dd"><div class="num" id="cdD">00</div><div class="lab">DÍAS</div></div>
+        <div class="dd"><div class="num" id="cdH">00</div><div class="lab">HORAS</div></div>
+        <div class="dd"><div class="num" id="cdM">00</div><div class="lab">MIN</div></div>
+        <div class="dd"><div class="num" id="cdS">00</div><div class="lab">SEG</div></div>
+      </div>
+      <div class="actions">
+        <a class="link dark" href="#sec-detalles">Cómo llegar</a>
+        <a class="link dark" href="#sec-rsvp">Confirmar asistencia</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="full">
+    <div class="block">
+      <h2>¡Nos casamos!</h2>
+      <p class="muted"></p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <!-- DETALLES + MAPA -->
+<section class="full" id="sec-detalles" style="background: #fff; padding: 60px 18px;">
+  <div class="block" data-aos="fade-up" style="max-width: 800px; margin: 0 auto;">
+    
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div style="width: 30px; height: 1.5px; background: #000; margin: 15px auto 0;"></div>
+    </div>
+
+    <div style="margin-bottom: 40px; background: #f9f9f9; padding: 15px; border: 1px solid #eee;">
+      <div style="overflow: hidden; height: 350px; position: relative;"> <img src="a0bb699bc3122035c5487d7d1408fb70.jpg" 
+             alt="Maira y Tomás" 
+             style="width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: grayscale(100%) contrast(1.1);">
+      </div>
+    </div>
+
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <p style="font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; margin-bottom: 20px; color: #000;">
+        "Lo esencial es celebrar con el alma."
+      </p>
+      
+      <p class="muted" style="font-size: 15px; line-height: 1.8; margin-bottom: 30px;">
+        Los esperamos para compartir nuestra unión en <br>
+        <b style="color: #000; font-size: 17px; letter-spacing: 1px;">JANOS BELLA VISTA 2</b>
+      </p>
+
+      <div style="filter: grayscale(100%) opacity(0.8); margin-bottom: 20px; border-radius: 4px; overflow: hidden; border: 1px solid #eee;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13142.98135563143!2d-58.717030797660634!3d-34.56000269631209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbdcd8f7d54ff%3A0xe37654e5482b1ea3!2sJano&#39;s%20Bella%20Vista%202!5e0!3m2!1ses-419!2sar!4v1771946004862!5m2!1ses-419!2sar"></iframe>
+      <div class="actions" style="margin-top: 30px;">
+        <a class="link mini" target="_blank" href="https://maps.app.goo.gl/qqztdiRvBrTxswfw6" style="font-weight: 700; text-decoration: none; border-bottom: 1.5px solid #000;">VER UBICACIÓN EN MAPS</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+  <!-- AGENDAR -->
+  <section class="full" id="sec-agenda">
+    <div class="block" data-aos="fade-up">
+      <div class="paper">
+        <h2>Agendá el evento</h2>
+        <p class="muted" id="ev-date-pill" style="margin:6px 0 14px">Sáb 20 FEBRERO 2027 · 15:00–21:00 · Janos Bella Vista 2</p>
+        <div class="actions">
+          <a id="btn-gcal" class="link" target="_blank" rel="noopener">Añadir a Google Calendar</a>
+          <a id="btn-ics" class="link" download="Maira-Tomas.ics">Descargar .ics</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- RSVP -->
+  <section class="full" id="sec-rsvp">
+    <div class="block" data-aos="fade-up">
+      <h2>Confirmación de asistencia</h2>
+      <p class="muted" style="margin-bottom:10px">Confirmá antes del <strong>1 de diciembre</strong>.</p>
+      <div class="paper">
+       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU4xhMUCOqWwXVMRIz7rO9CM_Ksx0slcGCr5oZNnCr6J_fCw/viewform?embedded=true" width="640" height="849" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+      </div>
+    </div>
+  </section>
+   <!-- REGALOS -->
+  <section class="full" id="sec-regalos">
+    <div class="block" data-aos="fade-up">
+      <div class="gift-head">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 7h10l-3-4H10l-3 4Z" stroke-width="1.2"/><circle cx="12" cy="16" r="6.5" stroke-width="1.2"/></svg>
+        <h2 style="margin:0">Regalos</h2>
+      </div>
+      <p class="muted" style="text-align:center">Tu presencia es lo más importante ✨<br><span class="mini">Si querés colaborar, te dejamos nuestros datos.</span></p>
+
+      <div class="paper" style="margin-top:16px">
+        <div class="copyline">
+          <span class="mini">Alias</span>
+          <code id="alias-text" class="pill">MAIRAYTOMAS.BODA</code>
+          <button class="link" id="copy-alias" type="button">Copiar</button>
+        </div>
+        <hr class="hr-fine">
+        <div class="copyline">
+          <span class="mini">CBU</span>
+          <code id="cbu-text" class="pill">00000000-0000000000000000000000</code>
+          <button class="link" id="copy-cbu" type="button">Copiar</button>
+        </div>
+        <div class="hr-fine" style="margin-top:16px"></div>
+        <details class="qrwrap">
+          <summary class="link" style="list-style:none;cursor:pointer">Ver QR para transferir</summary>
+          <img class="qr" alt="QR de transferencia" loading="lazy"
+               src="https://chart.googleapis.com/chart?cht=qr&chs=280x280&chl=ALIAS%3AMAIRAYTOMAS.BODA%0ACBU%3A00000000-0000000000000000000000" />
+          <p class="mini" style="margin-top:6px">Tip: mantené presionado para guardar el QR.</p>
+        </details>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </section>
+    <!-- PLAYLIST -->
+  <section class="full" id="sec-canciones">
+    <div class="block" data-aos="fade-up">
+      <h2>Playlist</h2>
+      <p class="muted" style="margin-bottom:8px">Unite a la playlist colaborativa y sumá tu tema.</p>
+      <iframe title="Playlist Spotify" id="sp-official" height="352" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2iZBzl3QNiCb2oUMjQvK9U?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="actions">
+        <a class="link dark" id="sp-collab" href="https://open.spotify.com/playlist/2iZBzl3QNiCb2oUMjQvK9U?si=ca94b89a6bad4ac1&pt=c780cc33e29f16648c660bedee46967a" target="_blank" rel="noopener">Unite a la playlist</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTOS (Drive) -->
+  <section class="full" id="sec-fotos">
+    <div class="block" data-aos="fade-up">
+      <h2>Fotos de la fiesta</h2>
+      <p class="muted" style="margin-bottom:20px">Queremos ver la boda a través de tus ojos ✨</p>
+
+      <div class="paper">
+        <div class="grid">
+          <div style="text-align: left;">
+            <h3 style="font-family:'Playfair Display',serif; font-size: 18px; text-transform: uppercase; margin-top: 0;">Carpeta Compartida</h3>
+            <p class="mini" style="margin-bottom: 24px; line-height: 1.6;">
+              Hacé clic en el botón para abrir la carpeta de Drive. <br>
+              Ahí vas a poder subir todas las fotos y videos que saques durante el evento para compartirlos con nosotros.
+            </p>
+            
+            <div class="actions" style="justify-content: flex-start;">
+              <a class="link" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1FXB3nC6cLlUXwfhIPZJWmWGrthIkQszE?usp=drive_link">Subir mis fotos</a>
+              
+              <a class="link mini" target="_blank" rel="noopener" href="https://wa.me/?text=https://drive.google.com/drive/folders/1FXB3nC6cLlUXwfhIPZJWmWGrthIkQszE?usp=drive_link" style="font-weight: 400; border-color: var(--muted); color: var(--muted);">Compartir link por WhatsApp</a>
+            </div>
+          </div>
+
+          <div style="display: grid; place-items: center;">
+            <div class="qrwrap" style="text-align: center;">
+              <img id="drive-qr" class="qr" alt="QR Carpeta Drive" 
+                   src="Boda M&T.png" />
+              <p class="mini" style="margin-top:10px">Escaneame para subir fotos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <details style="margin-top:20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto;">
+        <summary class="link mini" style="list-style:none; cursor:pointer; text-align: center;">¿Cómo subir fotos?</summary>
+        <div class="paper" style="margin-top: 10px; padding: 15px;">
+           <ul class="mini" style="line-height: 1.8; margin: 0; padding-left: 20px;">
+             <li>Entrá al link o escaneá el QR.</li>
+             <li>Tocá el botón <b>"+"</b> o <b>"Subir"</b>.</li>
+             <li>Seleccioná las fotos de tu galería.</li>
+             <li>¡Listo! Ya las podemos ver todos.</li>
+           </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer>Hecho con ❤ — Deploy estático</footer>
+
+  <!-- Toast + ToTop -->
+  <div id="toast" class="toast">Copiado</div>
+  <div id="totop" class="totop"><a href="#inicio" aria-label="Volver arriba">▲</a></div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:700, easing:'ease-out-quart' });
+
+    // Menú hamburguesa
+// Menú hamburguesa
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+
+// Función para alternar el menú
+const toggleMenu = () => menu.classList.toggle('open');
+
+burger?.addEventListener('click', (e) => {
+  e.stopPropagation(); // Evita que el clic se propague
+  toggleMenu();
+});
+
+// Cierra el menú al hacer clic en cualquier enlace
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('open');
+  });
+});
+
+// Opcional: Cierra el menú si haces clic fuera de él
+document.addEventListener('click', (e) => {
+  if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== burger) {
+    menu.classList.remove('open');
+  }
+});
+    // Countdown
+    const EVENT_DATE = new Date('2027-02-20T18:00:00');
+    const ids1 = {d:'cdD',h:'cdH',m:'cdM',s:'cdS'};
+    const hero = { d:document.getElementById(ids1.d), h:document.getElementById(ids1.h), m:document.getElementById(ids1.m), s:document.getElementById(ids1.s) };
+    const pad = n=>String(n).padStart(2,'0');
+    function tick(){
+      const diff = EVENT_DATE - new Date();
+      const done = diff<=0;
+      const d = done?0:Math.floor(diff/86400000);
+      const h = done?0:Math.floor((diff%86400000)/3600000);
+      const m = done?0:Math.floor((diff%3600000)/60000);
+      const s = done?0:Math.floor((diff%60000)/1000);
+      [hero].forEach(t=>{ if(!t.d) return; t.d.textContent=pad(d); t.h.textContent=pad(h); t.m.textContent=pad(m); t.s.textContent=pad(s); });
+    }
+    tick(); setInterval(tick,1000);
+
+    // Add to Calendar
+    (function(){
+      const title='Casamiento Maira & Tomás', location='Janos Bella Vista 2', details='Una noche única 🎉';
+      const start=new Date('2027-02-20T18:00:00'), end=new Date(start.getTime()+6*60*60*1000);
+      const p2=n=>String(n).padStart(2,'0');
+      const utc=d=>d.getUTCFullYear()+p2(d.getUTCMonth()+1)+p2(d.getUTCDate())+'T'+p2(d.getUTCHours())+p2(d.getUTCMinutes())+p2(d.getUTCSeconds())+'Z';
+      const human=d=>d.toLocaleDateString('es-AR',{weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' – '+end.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
+      document.getElementById('ev-date-pill').textContent=human(start);
+      document.getElementById('btn-gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+utc(start)+'/'+utc(end)+'&location='+encodeURIComponent(location)+'&details='+encodeURIComponent(details);
+      const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Invitacion//ES','BEGIN:VEVENT','UID:'+Date.now()+'@invitacion','DTSTAMP:'+utc(new Date()),'DTSTART:'+utc(start),'DTEND:'+utc(end),'SUMMARY:'+title,'DESCRIPTION:'+details.replace(/\n/g,'\\n'),'LOCATION:'+location,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+      document.getElementById('btn-ics').href=URL.createObjectURL(new Blob([ics],{type:'text/calendar;charset=utf-8'}));
+    })();
+
+    // Copiar Alias/CBU + toast
+    (function(){
+      const toast=document.getElementById('toast'); let tId=null;
+      const showToast=msg=>{ toast.textContent=msg||'Copiado'; toast.classList.add('show'); clearTimeout(tId); tId=setTimeout(()=>toast.classList.remove('show'),1400) };
+      const hook=(id,btn)=>{ const el=document.getElementById(id), b=document.getElementById(btn); b?.addEventListener('click', async ()=>{ try{ await navigator.clipboard.writeText(el.textContent.trim()); showToast('Copiado'); }catch(e){ alert('Copiá manualmente: '+el.textContent.trim()); } }); };
+      hook('alias-text','copy-alias'); hook('cbu-text','copy-cbu');
+    })();
+
+    // Drive Photos section
+    (function(){
+      const $input = document.getElementById('drive-url');
+      const $save  = document.getElementById('drive-save');
+      const $open  = document.getElementById('drive-open');
+      const $wa    = document.getElementById('drive-wa');
+      const $qr    = document.getElementById('drive-qr');
+
+      function isDriveLink(u){
+        try{ const x = new URL(u); return x.hostname.includes('drive.google.com'); }
+        catch{ return false; }
+      }
+      function setState(u){
+        const valid = isDriveLink(u);
+        const enc = encodeURIComponent(u || '');
+        // Abrir carpeta
+        $open.href = valid ? u : '#';
+        $open.setAttribute('aria-disabled', valid ? 'false' : 'true');
+        // WhatsApp
+        const msg = `¡Subí tus fotos acá! 📸 ${u}`;
+        $wa.href = valid ? `https://wa.me/?text=${encodeURIComponent(msg)}` : '#';
+        $wa.setAttribute('aria-disabled', valid ? 'false' : 'true');
+        // QR
+        $qr.src = `https://chart.googleapis.com/chart?cht=qr&chs=280x280&chl=${enc}`;
+      }
+
+      $save?.addEventListener('click', ()=>{
+        const v = ($input?.value || '').trim();
+        if(!isDriveLink(v)){ alert('Pegá un enlace válido de Google Drive (carpeta).'); return; }
+        setState(v);
+        const toast = document.getElementById('toast');
+        if(toast){ toast.textContent='Enlace guardado'; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1200); }
+      });
+    })();
+
+    // Activo de menú por sección + botón Top
+    (function(){
+      const links=[...document.querySelectorAll('.menu a')];
+      const map=new Map(links.map(a=>[a.getAttribute('href').replace('#',''),a]));
+      const observer=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            links.forEach(l=>l.classList.remove('active'));
+            const id=e.target.id; const a=map.get(id); a?.classList.add('active');
+          }
+        });
+      }, {rootMargin:'-50% 0px -45% 0px', threshold:0});
+      ['inicio','sec-detalles','sec-fotos','sec-regalos','sec-rsvp','sec-canciones'].forEach(id=>{
+        const el=document.getElementById(id); if(el) observer.observe(el);
+      });
+      const toTop=document.getElementById('totop');
+      const onScroll=()=>{ toTop.classList.toggle('show', window.scrollY>600); };
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+  </script>
+</body>
+</html>
+ 

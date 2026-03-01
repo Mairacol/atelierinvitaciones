@@ -1,0 +1,450 @@
+/* --- 1. VARIABLES DE LUJO --- */
+:root {
+    --bg-color: #fdfcfb; 
+    --text-color: #121212;
+    --accent-color: #b59b7c; /* Oro Champaña */
+    --accent-soft: rgba(181, 155, 124, 0.15);
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --transition-luxe: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- 2. RESET, SCROLL & CURSOR --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    overflow-y: scroll; /* Asegura que el scroll siga activo */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Brave, Edge */
+    width: 0 !important;
+    height: 0 !important;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@media (pointer: fine) {
+    * { cursor: none; }
+    #custom-cursor {
+        width: 8px; height: 8px; background: var(--accent-color);
+        border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000;
+        mix-blend-mode: difference; transition: transform 0.2s ease-out;
+    }
+}
+
+/* --- 3. LOADER EDITORIAL --- */
+#loader {
+    position: fixed; inset: 0; background: var(--bg-color); z-index: 9999;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity 1s ease;
+}
+.loader-initials { 
+    font-family: var(--font-serif); font-size: 2.5rem; 
+    letter-spacing: 15px; color: var(--accent-color); font-weight: 300; 
+    text-indent: 15px;
+}
+.loader-bar { 
+    width: 0; height: 1px; background: var(--accent-color); 
+    margin-top: 25px; animation: load 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards; 
+}
+@keyframes load { to { width: 120px; } }
+
+/* --- 4. HERO --- */
+.hero {
+    height: 100vh; width: 100%;
+    position: fixed; top: 0; left: 0;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1;
+}
+.video-container { position: absolute; inset: 0; z-index: -1; }
+video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5); }
+.video-overlay { 
+    position: absolute; inset: 0; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.4));
+}
+.hero-content { text-align: center; color: white; z-index: 2; padding: 0 20px; }
+.hero h1 { 
+    font-family: var(--font-serif); font-size: clamp(2.2rem, 9vw, 6.5rem); 
+    letter-spacing: 0.4em; text-indent: 0.4em; font-weight: 200; 
+    margin-bottom: 15px; text-transform: uppercase;
+}
+.hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 10px;
+    opacity: 0.9;
+    text-indent: 12px;
+}
+.hero-date {
+    font-size: 1.2rem; 
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 15px;
+    display: inline-block;
+}
+.hero-date a {
+    color: inherit !important;
+    text-decoration: none !important;
+    pointer-events: none;
+}
+.gold-line { width: 50px; height: 1px; background: var(--accent-color); margin: 20px auto; }
+
+.btn-calendar {
+    margin-top: 35px; padding: 15px 35px; border: 1px solid rgba(255,255,255,0.3);
+    color: white; text-decoration: none; font-size: 0.65rem;
+    letter-spacing: 4px; display: inline-block; text-transform: uppercase;
+    transition: var(--transition-luxe); background: transparent;
+}
+.btn-calendar:hover { background: white; color: black; border-color: white; transform: translateY(-3px); }
+
+/* --- 5. WRAPPER & SECCIONES --- */
+.content-wrapper {
+    position: relative; z-index: 10; margin-top: 100vh;
+    background: var(--bg-color); box-shadow: 0 -20px 50px rgba(0,0,0,0.08);
+}
+.section { padding: 120px 24px; text-align: center; }
+.container { max-width: 850px; margin: 0 auto; }
+.section-subtitle { 
+    letter-spacing: 7px; font-size: 0.6rem; color: var(--accent-color); 
+    text-transform: uppercase; margin-bottom: 35px; display: block;
+}
+h2 { 
+    font-family: var(--font-serif); font-size: clamp(1.8rem, 5vw, 3.2rem); 
+    font-weight: 300; letter-spacing: 5px; margin-bottom: 45px; text-transform: uppercase;
+}
+.poetic-text { 
+    font-family: var(--font-serif); font-size: clamp(1.2rem, 3.5vw, 1.8rem); 
+    font-style: italic; color: #333; max-width: 650px; margin: 0 auto; line-height: 1.4;
+}
+
+/* --- 6. SECCIÓN POLAROID --- */
+.section-image-polaroid {
+    padding: 140px 20px;
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+    background-color: #fdfcfb;
+    background-image: url("https://www.transparenttextures.com/patterns/linen.png"); 
+    border-top: 1px solid rgba(181, 155, 124, 0.1);
+    border-bottom: 1px solid rgba(181, 155, 124, 0.1);
+}
+.polaroid-frame {
+    background: #ffffff;
+    padding: 18px 18px 70px 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05), 0 2px 10px rgba(0,0,0,0.02);
+    transform: rotate(-3deg);
+    transition: var(--transition-luxe);
+    max-width: 420px; width: 100%;
+    position: relative; z-index: 2;
+}
+.polaroid-inner { position: relative; overflow: hidden; background: #eee; aspect-ratio: 1 / 1; }
+.polaroid-inner::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 15px rgba(0,0,0,0.1); pointer-events: none; }
+.novios-img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.15) contrast(1.05) brightness(1.02); display: block; transition: transform 1.5s ease; }
+.polaroid-caption { font-family: var(--font-serif); color: #4a4a4a; text-align: center; margin-top: 30px; font-size: 1.4rem; font-style: italic; letter-spacing: 1px; }
+
+.polaroid-frame:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 40px 70px rgba(181, 155, 124, 0.15); }
+.polaroid-frame:hover .novios-img { transform: scale(1.1); }
+
+/* --- 7. CRONOGRAMA & CARDS --- */
+.timeline { list-style: none; max-width: 500px; margin: 0 auto; }
+.timeline li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 25px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-family: var(--font-serif); font-size: 1.3rem;
+}
+.timeline span { font-family: var(--font-sans); font-size: 0.95rem; color: var(--accent-color); font-weight: 400; }
+
+.luxe-card {
+    padding: 70px 40px; background: #fff;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+}
+.bank-details { margin-top: 30px; }
+.bank-details .alias { font-size: 1.1rem; letter-spacing: 3px; font-weight: 400; margin-bottom: 5px; }
+/* --- HAUTE COUTURE SECTION --- */
+.haute-couture {
+    padding: 140px 0 !important;
+    background-color: #fff;
+    text-align: center;
+}
+
+.dress-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 10vw, 6rem) !important;
+    font-weight: 200;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #000;
+    letter-spacing: -2px;
+    margin: 20px 0;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 80px;
+    background: #000;
+    margin: 40px auto;
+}
+
+.req-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+}
+
+.req-detail {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 80px;
+}
+
+/* --- MOODBOARD (Aquí está el truco para que se vean) --- */
+/* --- MOODBOARD RECARGADO --- */
+.style-moodboard {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Forzamos las 3 columnas */
+    grid-gap: 20px;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+.mood-item {
+    display: block !important; /* Nos aseguramos que no esté hidden */
+    width: 100%;
+    height: 500px !important; /* Altura fija para las tres */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    transition: all 1s ease;
+    background-color: #f0f0f0; /* Color de respaldo por si el link falla */
+}
+
+/* El escalonado editorial */
+.mood-item:nth-child(2) {
+    transform: translateY(60px);
+}
+
+/* La tercera imagen: le damos prioridad absoluta */
+.mood-item:nth-child(3) {
+    transform: translateY(0);
+}
+
+/* El efecto escalonado para que se vea "Vogue" */
+.mood-item:nth-child(2) {
+    transform: translateY(40px);
+}
+/* Efecto Hover: vuelve al color original y se agranda apenas */
+.mood-item:hover {
+    filter: grayscale(0%); /* Quita el blanco y negro */
+    transform: scale(1.02); /* Un zoom sutil de alta gama */
+    cursor: crosshair; /* Cambia el mouse a una cruz, muy estilo galería de arte */
+}
+
+/* Ajuste para que el efecto no rompa el escalonado de la imagen del medio */
+.mood-item:nth-child(2):hover {
+    transform: translateY(40px) scale(1.02);
+}
+#rsvp-success-msg {
+    animation: fadeInLuxe 1.5s ease forwards;
+}
+
+@keyframes fadeInLuxe {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-luxe:disabled {
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+    color: #999;
+}
+
+.req-disclaimer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    color: #b08d57;
+    border-top: 1px solid #eee;
+    display: inline-block;
+    padding-top: 30px;
+    margin-top: 50px;
+}
+.rsvp-helper {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* Muy pequeño */
+    letter-spacing: 1px;
+    color: #999; /* Gris suave */
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* Opcional: un efecto suave al cargar */
+.rsvp-helper {
+    animation: fadeIn 2s ease;
+}
+/* Mobile */
+@media (max-width: 768px) {
+    .style-moodboard {
+        grid-template-columns: 1fr; /* Una imagen debajo de otra en celular */
+        grid-gap: 40px;
+    }
+    .mood-item {
+        height: 400px;
+    }
+    .mood-item:nth-child(2) {
+        transform: none;
+    }
+}
+/* --- 8. RSVP & OTROS --- */
+.rsvp-form { margin-top: 40px; display: flex; flex-direction: column; align-items: center; }
+.rsvp-form input {
+    width: 100%; max-width: 350px; padding: 15px; background: transparent;
+    border: none; border-bottom: 1px solid #ddd; text-align: center;
+    margin-bottom: 40px; font-family: var(--font-sans); letter-spacing: 2px;
+    transition: border-color 0.4s;
+}
+.rsvp-form input:focus { outline: none; border-color: var(--accent-color); }
+
+.btn-luxe {
+    background: var(--text-color); color: white; border: none;
+    padding: 18px 60px; letter-spacing: 5px; text-transform: uppercase;
+    font-size: 0.7rem; transition: var(--transition-luxe);
+}
+.btn-luxe:hover { background: var(--accent-color); transform: translateY(-2px); }
+
+.section-party { background-color: #0d0d0d !important; color: white; }
+.spotify-card-party { max-width: 500px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+
+.btn-drive-luxe {
+    display: inline-flex; align-items: center; gap: 15px;
+    padding: 20px 45px; background: var(--text-color); color: white;
+    text-decoration: none; letter-spacing: 5px; font-size: 0.7rem;
+    border-radius: 2px; transition: var(--transition-luxe);
+}
+.btn-drive-luxe:hover { background: var(--accent-color); }
+
+.huge-hashtag {
+    margin-top: 100px; font-size: clamp(1.5rem, 6vw, 2.5rem);
+    opacity: 0.15; letter-spacing: 12px; text-align: center;
+    font-family: var(--font-serif); font-weight: 300;
+}
+
+/* --- ESTILO MAPA MINIMALISTA --- */
+.map-wrapper {
+    position: relative;
+    margin-top: 50px;
+    border: 1px solid #f0f0f0;
+    line-height: 0;
+    /* Filtro para que se vea sofisticado */
+    filter: grayscale(100%) contrast(1.1) brightness(0.95);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.map-wrapper:hover {
+    filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+.location-detail {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 15px;
+}
+
+.btn-minimal-gold {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: #b08d57; /* El dorado que ya venís usando */
+    border: 1px solid #b08d57;
+    padding: 15px 30px;
+    transition: all 0.4s ease;
+}
+
+.btn-minimal-gold:hover {
+    background-color: #b08d57;
+    color: #fff;
+}
+/* --- 9. ANIMACIONES --- */
+.fade-in { 
+    opacity: 0; 
+    transform: translateY(15px); 
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.scroll-indicator { 
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    font-size: 0.55rem; letter-spacing: 5px; color: white; opacity: 0.7;
+    animation: bounce 2s infinite; 
+}
+
+@keyframes bounce { 
+    0%, 100% { transform: translate(-50%, 0); } 
+    50% { transform: translate(-50%, -10px); } 
+}
+
+/* --- 10. RESPONSIVE CONSOLIDADO --- */
+@media (max-width: 768px) {
+    .hero h1 { letter-spacing: 0.2em; text-indent: 0.2em; font-size: 2.2rem; }
+    .hero-subtitle { font-size: 0.7rem; letter-spacing: 6px; text-indent: 6px; }
+    .hero-date { font-size: 0.9rem; letter-spacing: 4px; }
+    .section { padding: 90px 24px; }
+    .section-image-polaroid { padding: 100px 24px; }
+    .polaroid-frame { padding: 12px 12px 50px 12px; transform: rotate(-2deg); }
+    .polaroid-caption { font-size: 1.1rem; margin-top: 20px; }
+    .timeline li { flex-direction: column; gap: 8px; }
+    .btn-calendar, .btn-luxe, .btn-drive-luxe { width: 100%; max-width: 300px; }
+    .huge-hashtag { letter-spacing: 6px; }
+    .haute-couture {
+        padding: 60px 0 !important;
+    }
+
+    .req-detail {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    .divider-vertical {
+        height: 50px;
+        margin: 20px auto;
+    }
+
+    .mood-item {
+        height: 400px;
+        filter: grayscale(0%); /* En celu mejor que se vea a color porque no hay 'hover' */
+    }
+    
+    .rsvp-helper {
+        font-size: 0.7rem; /* Lo bajé porque 1rem era gigante para un "helper" */
+    }
+}

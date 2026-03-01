@@ -1,0 +1,278 @@
+/* ===== BASE ===== */
+body {
+    margin: 0;
+    background: #e9e5e1;
+    background-image: url("assets/paper-texture.png");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    color: #3a3a3a;
+}
+/* ===== PAGE CENTERING ===== */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+.watercolor {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 180px;
+    background: url("assets/acuarela.png") no-repeat center;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+}
+h1 {
+    letter-spacing: 1px;
+}
+
+h2 {
+    letter-spacing: 1px;
+    color: #4a4a4a;
+}
+.ampersand{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    margin: 5px 0;
+    opacity: 0.6;
+}
+.events{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+strong {
+    font-weight: 500;
+}
+/* ===== CARD ===== */
+
+.card {
+    background: url("assets/fondo.png") center/cover no-repeat;
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 70px;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    text-align: center;
+    position: relative;
+}
+.card {
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== MUSIC BUTTON ===== */
+
+.music-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.music-btn::before {
+    content: "♪";
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+/* ===== HERO IMAGE ===== */
+
+.hero-img img {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.date {
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.venue {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 30px 0 20px 0;
+}
+/* ===== DIVIDER ===== */
+
+.divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #cfcac4, transparent);
+    margin: 40px auto;
+}
+
+.dress {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 20px;
+}
+/* ===== MAP ===== */
+
+iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    margin-top: 20px;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #8e9a84;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* ===== RSVP ===== */
+
+.rsvp-sub {
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    width: 100%;
+    max-width: 420px;   /* clave */
+    margin: 0 auto 25px auto;
+    display: block;
+
+    padding: 12px 10px;
+    border: none;
+border-bottom: 1px solid rgba(0,0,0,0.25);
+    background: transparent;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: #9c978f;
+    letter-spacing: 1px;
+}
+input[type="text"]:focus {
+    border-bottom: 1px solid #8e9a84;
+}
+button[type="submit"]{
+    width: 200px;
+}
+
+.rsvp-form{
+    max-width: 420px;
+    margin: 0 auto;
+}
+.radio-group {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.radio-group label {
+    margin: 0 15px;
+}
+
+button[type="submit"] {
+    padding: 10px 30px;
+    border: none;
+    background: #8e9a84;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.footer-text {
+    margin-top: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width: 768px){
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .info-grid::after {
+        display: none;
+    }
+
+    .info-grid > div {
+        padding: 0;
+    }
+}
+@media(max-width: 768px){
+
+    .card {
+        padding: 40px 25px; /* menos padding lateral */
+    }
+
+    .hero-img img {
+        max-width: 100%;     /* que ocupe todo */
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+}
+@media(max-width:768px){
+
+    .events{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+}
+@media(max-width:768px){
+
+    input[type="text"]{
+        max-width: 280px;   /* más corto en mobile */
+        font-size: 13px;
+        padding: 10px 8px;
+    }
+
+    button[type="submit"]{
+        width: 180px;
+        font-size: 13px;
+    }
+
+}

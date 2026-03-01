@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
+    <title>Sofía & Lucas | 19.12.2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <span class="loader-initials">S & L</span>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="video-container">
+            <video autoplay muted loop playsinline id="hero-video">
+                <source src="boda.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div> 
+        </div>
+        <div class="hero-content">
+            <div class="hero-titles">
+                <p class="hero-subtitle">¡NOS CASAMOS!</p> 
+                <h1>SOFÍA & LUCAS</h1>
+                <div class="gold-line"></div>
+                <p class="hero-date">19 — 12 — 2026</p> 
+            </div>
+            <div class="hero-actions">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Sofía+%26+Lucas&dates=20261219/20261220&details=¡Acompañanos+en+nuestro+gran+día!&sf=true&output=xml" target="_blank" class="btn-calendar">Agendar Fecha</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span>DESCUBRIR ↓</span></div>
+    </section>
+
+    <div class="content-wrapper">
+        
+        <section class="section section-text" id="historia">
+            <div class="container fade-in">
+                <h2>Nuestra Historia</h2>
+                <p class="poetic-text">
+                    No hubo un comienzo exacto,<br>
+                    solo el instante en que dejamos de ser dos caminos separados.<br><br>
+                    Entre viajes y veranos eternos, descubrimos un amor libre, sereno y profundamente inevitable.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-image-polaroid">
+            <div class="polaroid-frame fade-in">
+                <div class="polaroid-inner">
+                    <img src="boda.jpg" alt="Sofía y Lucas" class="novios-img">
+                </div>
+                <p class="polaroid-caption">19/12/2026. <br>S & L </p>
+            </div>
+        </section>
+
+        <section class="section section-rsvp">
+            <div class="container fade-in">
+                <h2>Confirmar Asistencia</h2>
+                <p class="rsvp-deadline">POR FAVOR, CONFIRMAR ANTES DEL 19.11.2026</p>
+                
+                <form class="rsvp-form" id="rsvp-form">
+                    <input type="text" id="guest-name" placeholder="NOMBRE COMPLETO" required>
+                    <button type="button" class="btn-luxe" onclick="sendRSVP()">Confirmar Asistencia</button>
+                    <p class="rsvp-helper">* Se abrirá WhatsApp para enviar tu confirmación.</p>
+                </form>
+                
+                <div id="rsvp-success-msg" style="display: none; margin-top: 30px;">
+                    <p class="poetic-text-small" style="color: #b08d57; letter-spacing: 2px;">
+                        ¡Gracias por avisarnos!<br>
+                        Tu lugar en la boda ha sido reservado.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-map">
+            <div class="container fade-in">
+                <p class="section-subtitle">UBICACIÓN</p>
+                <h2>Salón Vonharv</h2>
+                <p class="location-detail">Av. 19 e/ 511 y 514, Gonnet</p>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3274.5244585147817!2d-58.0163351!3d-34.8807534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2cecc046e9479%3A0x272885f191e1227b!2sVonharv!5e0!3m2!1ses!2sar!4v1715800000000!5m2!1ses!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/CB8FEx6e6Fpb3fXv9" target="_blank" class="btn-minimal-gold" style="margin-top: 30px; display: inline-block; text-decoration: none;">COMO LLEGAR →</a>
+            </div>
+        </section>
+
+        <section class="section haute-couture">
+            <div class="container fade-in">
+                <p class="section-subtitle">STRICT ETIQUETTE</p>
+                <h2 class="dress-main">Black Tie</h2>
+                <div class="divider-vertical"></div>
+                <div class="dress-requirements">
+                    <p class="req-item">FORMAL RIGUROSO</p>
+                    <p class="req-detail">Vestido largo de gala • Smoking obligatorio</p>
+                </div>
+                <div class="style-moodboard">
+                    <div class="mood-item" style="background-image: url('https://i.pinimg.com/736x/ef/9e/07/ef9e07494b428b52476c12fdf061b393.jpg');"></div>
+                    <div class="mood-item" style="background-image: url('dresscode.jpg');"></div>
+                    <div class="mood-item" style="background-image: url('https://i.pinimg.com/736x/37/8e/c4/378ec4e24c0e63dc056dd2cc1c3718b9.jpg');"></div>
+                </div>
+                <p class="req-disclaimer">
+                    RESERVAMOS EL USO DE BLANCOS, CREMAS Y NUDES EXCLUSIVAMENTE PARA LA NOVIA.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container fade-in">
+                <p class="section-subtitle">EL GRAN DÍA</p>
+                <h2>Cronograma</h2>
+                <ul class="timeline">
+                    <li><p>Ceremonia</p> <span>18:30</span></li>
+                    <li><p>Recepción</p> <span>19:15</span></li>
+                    <li><p>Cena & Fiesta</p> <span>20:30</span></li>
+                    <li><p>Cierre</p> <span>03:30</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container fade-in">
+                <div class="luxe-card">
+                    <p class="section-subtitle">PRESENTES</p>
+                    <h2>Lluvia de Sobres</h2>
+                    <p class="poetic-text-small">Tu presencia es nuestro mejor regalo. Si deseas colaborar con nuestro viaje:</p>
+                    <div class="bank-details">
+                        <p class="alias">ALIAS: Boda.Sofia.Lucas</p>
+                        <p>Banco Galicia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-party">
+            <div class="container fade-in">
+                <p class="section-subtitle" style="color: var(--accent-color)">SELECCIÓN MUSICAL</p>
+                <h2 style="color: white">¿Qué vamos a bailar?</h2>
+                <p class="poetic-text-small" style="color: rgba(255,255,255,0.7); margin-bottom: 40px;">
+                    Ayúdanos a armar la lista que nos hará bailar toda la noche.
+                </p>
+                <div class="spotify-card-party">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3MnaeVYyif6bTqO2PO8wVU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>                </div>
+            </div>
+        </section>
+
+        <section class="section section-drive">
+            <div class="container fade-in">
+                <p class="section-subtitle">MEMORIAS</p>
+                <h2>Tus Fotos</h2>
+                <p class="poetic-text-small" style="margin-bottom: 40px;">
+                    Queremos ver la boda a través de tus ojos.<br>Comparte tus fotos y videos en nuestro álbum compartido.
+                </p>
+                <a href="https://drive.google.com/drive/folders/1SwW6mg0o6JCVOmDq3vipXD1x3dtRV--u?usp=drive_link" class="btn-drive-luxe">
+                    <span class="btn-text">SUBIR AL DRIVE</span>
+                    <span class="btn-icon">↑</span>
+                </a>
+                <div class="hashtag-footer">
+                    <h2 class="huge-hashtag">@SOFIAYLUCAS</h2>
+                </div>
+            </div>
+        </section>
+
+    </div> <script src="script.js"></script>
+</body>
+</html>

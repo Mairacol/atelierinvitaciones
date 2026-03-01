@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carmen & Luis — 24.10.2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="card">
+
+        <!-- Botón música -->
+        <button class="music-btn" id="musicBtn"></button>
+
+        <!-- Imagen principal -->
+        <div class="hero-img">
+            <img src="assets/Edificio DOK bajo cielo azul.png" alt="Dok Haras">
+        </div>
+<div class="watercolor"></div>
+        <!-- Título -->
+        <h1>Carmen & Luis</h1>
+        <p class="date">24 · 10 · 2026</p>
+        <p class="venue">Dok Haras</p>
+
+        <div class="divider"></div>
+
+        <!-- Ceremonia -->
+<div class="events">
+  
+  <div class="event">
+    <h2>Ceremonia</h2>
+    <p>Lugar: Dok Haras</p>
+    <p>24 de Octubre 2026</p>
+    <p>19:00 hs</p>
+  </div>
+
+  <div class="event">
+    <h2>Celebración</h2>
+    <p>24 de Octubre 2026</p>
+    <p>20:00 hs</p>
+    <p>Finaliza: 05:00 hs</p>
+  </div>
+
+</div>
+        <p class="dress">Dress Code: Elegante</p>
+
+        <div class="divider"></div>
+
+        <!-- Ubicación -->
+        <h2>Ubicación</h2>
+
+        <iframe
+            src="https://www.google.com/maps?q=Dok+Haras&output=embed"
+            loading="lazy">
+        </iframe>
+
+        <a class="map-btn" href="https://www.google.com/maps?q=Dok+Haras" target="_blank">
+            Ver cómo llegar
+        </a>
+
+        <div class="divider"></div>
+
+        <!-- RSVP -->
+        <h2>Confirma tu asistencia</h2>
+        <p class="rsvp-sub">Esperamos contar con tu presencia</p>
+
+        <form id="rsvpForm">
+            <input type="text" placeholder="Nombre y Apellido" required>
+
+            <div class="radio-group">
+                <label><input type="radio" name="attend" required> Sí</label>
+                <label><input type="radio" name="attend"> No</label>
+            </div>
+
+            <button type="submit">Confirmar</button>
+        </form>
+
+        <p class="footer-text">Con amor, Carmen & Luis</p>
+
+    </div>
+
+</div>
+
+<!-- Música opcional -->
+<audio id="bgMusic" loop>
+    <source src="assets/musica.mp3" type="audio/mp3">
+</audio>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
