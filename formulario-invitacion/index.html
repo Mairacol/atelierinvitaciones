@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario | Atelier Invitaciones</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg: #0e0e0e;
+  --text: #f5f5f5;
+  --soft: #9c9c9c;
+  --accent: #c6b7a6;
+  --line: rgba(255,255,255,0.15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05), transparent 40%),
+              radial-gradient(circle at 70% 80%, rgba(255,255,255,0.04), transparent 40%);
+  z-index: -1;
+}
+
+.container {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 60px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  margin-bottom: 35px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* SELECT ESTILO ATELIER */
+
+.select-wrapper {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.select-wrapper::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  top: 14px;
+  color: var(--accent);
+  pointer-events: none;
+  font-size: 14px;
+}
+
+select {
+  width: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+select option {
+  background-color: #111;
+  color: #f5f5f5;
+}
+
+.material-info {
+  font-size: 12px;
+  color: var(--soft);
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--soft);
+  margin-bottom: 40px;
+}
+
+.checkbox input {
+  width: auto;
+  margin-top: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.footer-note {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--soft);
+  margin-top: 50px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  h1 { font-size: 34px; }
+  .container { margin: 60px auto; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Comencemos</h1>
+<p class="subtitle">La información da vida a tu invitación</p>
+
+<form action="https://formsubmit.co/contacto.atelierinvitaciones@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://atelierinvitaciones.com/gracias">
+
+<div class="section">
+
+<label>Nombre de los protagonistas</label>
+<input type="text" name="nombres" required>
+
+<label>Colección seleccionada</label>
+<div class="select-wrapper">
+  <select name="coleccion" required>
+    <option value="" disabled selected>Seleccionar colección</option>
+    <option value="Essential">Essential</option>
+    <option value="Signature">Signature</option>
+    <option value="Premium">Premium</option>
+  </select>
+</div>
+
+<label>Email de contacto</label>
+<input type="email" name="email_contacto" required>
+
+<label>Teléfono / WhatsApp</label>
+<input type="tel" name="telefono" required>
+
+<label>Fecha del evento</label>
+<input type="date" name="fecha" required>
+
+<label>Lugar del evento</label>
+<input type="text" name="lugar" required>
+
+<label>Ciudad / País</label>
+<input type="text" name="ubicacion" required>
+
+</div>
+
+<div class="section">
+
+<label>Frase principal</label>
+<input type="text" name="frase">
+
+<label>Mensaje de bienvenida</label>
+<textarea name="mensaje"></textarea>
+
+<label>¿Qué desean que sus invitados sientan al recibir esta invitación?</label>
+<textarea name="emocion_evento"></textarea>
+
+</div>
+
+<div class="section">
+
+<label>Fecha límite de confirmación</label>
+<input type="date" name="rsvp">
+
+<label>Información adicional</label>
+<textarea name="extra"></textarea>
+
+</div>
+
+<div class="section">
+
+<label>Material visual</label>
+
+<p class="material-info">
+Comparte un enlace Drive o Dropbox según tu colección:<br><br>
+– Essential: 1 fotografía<br>
+– Signature: hasta 3 fotografías<br>
+– Premium: hasta 5 fotografías + 1 video<br><br>
+Archivos en alta calidad y sin compresión.
+</p>
+
+<input type="url" name="link_material_visual" placeholder="Pegar enlace aquí" required>
+
+</div>
+
+<div class="section">
+
+<label>Experiencia & Música</label>
+
+<p class="material-info">
+(Aplica para Signature y Premium)
+</p>
+
+<input type="url" name="playlist_spotify" placeholder="Enlace a playlist de Spotify">
+
+<input type="url" name="drive_invitados" placeholder="Carpeta Drive para fotos de invitados">
+
+</div>
+
+<div class="checkbox">
+<input type="checkbox" required>
+<span>Confirmo que la información está completa y lista para iniciar el diseño.</span>
+</div>
+
+<button type="submit">Enviar información</button>
+
+</form>
+
+<p class="footer-note">
+Luego coordinaremos la entrevista creativa de 15 minutos.
+</p>
+
+</div>
+
+</body>
+</html>
