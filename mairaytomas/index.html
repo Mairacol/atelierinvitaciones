@@ -110,8 +110,18 @@
     /* Links acción */
     .actions{display:flex; gap:22px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:18px}
     .link{appearance:none; background:transparent; border:0; padding:0; color:var(--ink); text-decoration:none; font-weight:600; letter-spacing:.06em; border-bottom:1px solid var(--ink); line-height:1.6}
-    .link:hover{opacity:.8} .link.dark{color:#fff; border-color:#fff}
+    .link:hover{opacity:.8}
+/* Forzamos el color negro y quitamos la transparencia */
+.link.dark {
+    color: #000000 !important; 
+    border-color: #000000 !important;
+    opacity: 1 !important;
+}
 
+/* Aseguramos que no cambie de color si ya fue visitado */
+.link.dark:visited {
+    color: #000000;
+}
     /* Map/iframes */
     iframe{width:100%; height:500px; border:1px solid var(--line); border-radius:12px; background:#fff}
 
