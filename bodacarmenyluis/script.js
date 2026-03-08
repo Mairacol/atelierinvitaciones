@@ -1,37 +1,44 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 const musicBtn = document.querySelector(".music-btn");
 const bgMusic = document.getElementById("bgMusic");
 
-if (musicBtn) {
-musicBtn.addEventListener("click", () => {
-    if (bgMusic.paused) {
-        bgMusic.play();
-        musicBtn.classList.add("pause");
-    } else {
-        bgMusic.pause();
-        musicBtn.classList.remove("pause");
-    }
-});
+if (musicBtn && bgMusic) {
+    musicBtn.addEventListener("click", () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            musicBtn.classList.add("pause");
+        } else {
+            bgMusic.pause();
+            musicBtn.classList.remove("pause");
+        }
+    });
 }
+
 const scene = document.getElementById("envelopeScene");
 const seal = document.getElementById("sealBtn");
 const invitation = document.getElementById("invitation");
 const cover = document.getElementById("cover");
 
-if (seal) {
-seal.addEventListener("click", () => {
+if (seal && scene && invitation && cover) {
 
-scene.classList.add("open");
+    seal.addEventListener("click", () => {
 
-setTimeout(()=>{
-cover.style.opacity="0";
+        scene.classList.add("open");
 
-invitation.style.opacity="1";
+        setTimeout(() => {
 
-setTimeout(()=>{
-cover.style.display="none";
-},1000);
+            cover.style.opacity = "0";
+            invitation.style.opacity = "1";
 
-},1100);
+            setTimeout(() => {
+                cover.style.display = "none";
+            }, 1000);
+
+        }, 1100);
+
+    });
+
+}
 
 });
-}
