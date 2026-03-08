@@ -1,6 +1,82 @@
+#invitation{
+opacity:0;
+transition:opacity 1s ease;
+}
+#cover{
+position:fixed;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+pointer-events:auto;
+}
+.scene{
+position:relative;
+width:90vw;
+max-width:520px;
+perspective:1400px;
+margin:auto;
+}
+/* base sobre */
+
+.envelope-base{
+width:100%;
+display:block;
+filter:drop-shadow(0 10px 20px rgba(0,0,0,.12));
+}
+
+/* tapa */
+
+.envelope-top{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+transform: translateY(-10px);
+transform-origin:top;
+transition:transform 1.6s cubic-bezier(.77,0,.18,1);
+backface-visibility:hidden;
+}
+
+/* carta */
+
+
+
+/* sello */
+
+.seal{
+position:absolute;
+top:75%;
+left:50%;
+transform:translate(-50%,-50%);
+width:85px;
+cursor:pointer;
+transition:all .5s ease;
+z-index:5;
+}
+
+/* animaciones */
+
+.scene.open .seal{
+opacity:0;
+transform:translate(-50%,-50%) scale(.7);
+}
+
+.scene.open .envelope-top{
+transform:rotateX(-180deg);
+}
+
+.scene.open .letter{
+transform:translate(-50%,-40px);
+}
+
 /* ===== BASE ===== */
 body {
     margin: 0;
+    display:flex;
+flex-direction:column;
+align-items:center;
     background: #e9e5e1;
     background-image: url("/bodacarmenyluis/assets/fondo.png");
     background-size: cover;
@@ -225,54 +301,163 @@ button[type="submit"] {
 
 /* ===== RESPONSIVE ===== */
 
-@media(max-width: 768px){
+/* ===== TABLET ===== */
 
-    .info-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        text-align: center;
-    }
+@media (max-width:1024px){
 
-    .info-grid::after {
-        display: none;
-    }
-
-    .info-grid > div {
-        padding: 0;
-    }
+.scene{
+width:92vw;
+max-width:480px;
 }
-@media(max-width: 768px){
 
-    .card {
-        padding: 40px 25px; /* menos padding lateral */
-    }
+.card{
+max-width:820px;
+padding:50px 40px;
+}
 
-    .hero-img img {
-        max-width: 100%;     /* que ocupe todo */
-        width: 100%;
-        margin-bottom: 25px;
-    }
+.hero-img img{
+max-width:520px;
+}
+
+h1{
+font-size:44px;
+}
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width:768px){
+
+body{
+background-attachment:scroll;
+}
+
+.scene{
+width:92vw;
+max-width:420px;
+}
+
+.seal{
+width:70px;
+}
+
+.page{
+padding:40px 15px;
+}
+
+
+.hero-img img{
+width:100%;
+max-width:100%;
+margin-bottom:25px;
+}
+
+.events{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+h1{
+font-size:36px;
+}
+
+h2{
+font-size:20px;
+}
+
+.date{
+font-size:13px;
+}
+
+.venue{
+font-size:13px;
+}
+
+.dress{
+font-size:18px;
+}
+
+input[type="text"]{
+max-width:280px;
+font-size:13px;
+padding:10px 8px;
+}
+
+button[type="submit"]{
+width:180px;
+font-size:13px;
+}
+
+.watercolor{
+width:220px;
+height:140px;
+top:20px;
+}
+
+iframe{
+height:220px;
+}
+
+}
+
+/* ===== MOBILE SMALL ===== */
+
+@media (max-width:480px){
+
+.scene{
+width:94vw;
+}
+
+.card{
+padding:30px 18px;
+}
+
+h1{
+font-size:32px;
+}
+
+h2{
+font-size:18px;
+}
+
+.divider{
+margin:30px auto;
+}
+
+.dress{
+font-size:17px;
+}
+
+.hero-img img{
+margin-bottom:20px;
+}
+
+input[type="text"]{
+max-width:240px;
+}
+
+button[type="submit"]{
+width:160px;
+}
+
+.footer-text{
+font-size:14px;
+}
 
 }
 @media(max-width:768px){
 
-    .events{
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+.card{
+padding:40px 25px;
+}
 
 }
-@media(max-width:768px){
 
-    input[type="text"]{
-        max-width: 280px;   /* más corto en mobile */
-        font-size: 13px;
-        padding: 10px 8px;
-    }
+@media(max-width:480px){
 
-    button[type="submit"]{
-        width: 180px;
-        font-size: 13px;
-    }
+.card{
+padding:30px 18px;
+}
 
 }
