@@ -59,7 +59,38 @@ cursor:pointer;
 transition:all .5s ease;
 z-index:5;
 }
+.open-invite{
+position:absolute;
+top:92%;
+left:50%;
+transform:translateX(-50%);
 
+font-family:'Cormorant Garamond', serif;
+font-size:17px;
+letter-spacing:1.5px;
+color:#7a746d;
+
+opacity:.75;
+
+animation:inviteFloat 3s ease-in-out infinite;
+}
+
+@keyframes inviteFloat{
+0%,100%{
+transform:translate(-50%,0);
+opacity:.6;
+}
+
+50%{
+transform:translate(-50%,-6px);
+opacity:.95;
+}
+}
+
+.scene.open .open-invite{
+opacity:0;
+transition:opacity .6s ease;
+}
 /* animaciones */
 
 .scene.open .seal{
