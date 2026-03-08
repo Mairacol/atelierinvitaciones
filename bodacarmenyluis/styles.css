@@ -102,7 +102,7 @@ align-items:center;
     transform: translateX(-50%);
     width: 300px;
     height: 180px;
-    background: url("assets/acuarela.png") no-repeat center;
+    background: url("/bodacarmenyluis/assets/fondo.png") no-repeat center;
     background-size: contain;
     opacity: 0.15;
     pointer-events: none;
