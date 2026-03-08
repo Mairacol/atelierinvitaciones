@@ -30,6 +30,10 @@ setTimeout(()=>{
 cover.style.opacity="0";
 invitation.style.opacity="1";
 
+setTimeout(()=>{
+cover.style.display="none";
+},1000);
+
 },1100);
 
 });
