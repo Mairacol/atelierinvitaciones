@@ -1,6 +1,7 @@
 const musicBtn = document.querySelector(".music-btn");
 const bgMusic = document.getElementById("bgMusic");
 
+if (musicBtn) {
 musicBtn.addEventListener("click", () => {
     if (bgMusic.paused) {
         bgMusic.play();
@@ -10,6 +11,7 @@ musicBtn.addEventListener("click", () => {
         musicBtn.classList.remove("pause");
     }
 });
+}
 const scene = document.getElementById("envelopeScene");
 const seal = document.getElementById("sealBtn");
 const invitation = document.getElementById("invitation");
