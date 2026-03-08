@@ -17,15 +17,16 @@ const seal = document.getElementById("sealBtn");
 const invitation = document.getElementById("invitation");
 const cover = document.getElementById("cover");
 
+if (seal) {
 seal.addEventListener("click", () => {
 
 scene.classList.add("open");
 
 setTimeout(()=>{
-
 cover.style.opacity="0";
 
 invitation.style.opacity="1";
+
 setTimeout(()=>{
 cover.style.display="none";
 },1000);
@@ -33,3 +34,4 @@ cover.style.display="none";
 },1100);
 
 });
+}
