@@ -21,24 +21,18 @@ const invitation = document.getElementById("invitation");
 const cover = document.getElementById("cover");
 
 if (seal && scene && invitation && cover) {
+ seal.addEventListener("click", () => {
 
-    seal.addEventListener("click", () => {
+scene.classList.add("open");
 
-        scene.classList.add("open");
+setTimeout(()=>{
 
-        setTimeout(() => {
+cover.style.opacity="0";
+invitation.style.opacity="1";
 
-            cover.style.opacity = "0";
-            invitation.style.opacity = "1";
+},1100);
 
-            setTimeout(() => {
-                cover.style.display = "none";
-            }, 1000);
-
-        }, 1100);
-
-    });
-
+});
 }
 
 });
