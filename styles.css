@@ -655,6 +655,80 @@ padding: 160px 4% 140px;  background: #fcfaf7;
   font-size: 18px;
   line-height: 1.7;
 }
+/* 1. ESTILO BASE (Igual para todos) */
+.centralizar-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  background: none !important;
+}
+
+.demo-celular-simple {
+  position: relative;
+  display: inline-block;
+  width: 65%; 
+  max-width: 300px;
+  background: transparent !important;
+  text-decoration: none;
+}
+
+.img-celu-png {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.06)); 
+}
+
+.capa-boton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important;
+}
+
+/* 2. EL BOTÓN (Con el ajuste de Essential por defecto) */
+.boton-demo-texto {
+  background-color: #fcfaf7;
+  color: #1a1a1a;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+
+  /* Ajuste para el primero (Essential) */
+  margin-top: -10px; 
+  margin-left: 20px; 
+}
+
+/* 3. AJUSTES INDIVIDUALES (Aquí es donde corregís los que quedaron mal) */
+
+/* Si Signature quedó corrido, este margen de 25px lo arregla solo a él */
+.ajuste-signature .boton-demo-texto {
+  margin-left: 5px; 
+}
+
+/* Si Premium también está corrido, hacés lo mismo aquí */
+.ajuste-premium .boton-demo-texto {
+  margin-left: 5px; /* Ajustá este número a ojo */
+}
+
+/* Hover suave */
+.demo-celular-simple:hover .boton-demo-texto {
+  transform: scale(1.08);
+  letter-spacing: 3px;
+  background-color: #fcfaf7;
+}
 /* ================= ATELIER DIFERENCIAL ================= */
 
 .atelier-diferencial {
