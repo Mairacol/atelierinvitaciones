@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<script type="text/javascript">
+  // Usamos window para asegurar que sea global y visible para el iframe
+  window.submitted = false;
+</script>
   <meta charset="utf-8" />
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -268,16 +272,80 @@
       </div>
     </div>
   </section>
-  <!-- RSVP -->
-  <section class="full" id="sec-rsvp">
-    <div class="block" data-aos="fade-up">
-      <h2>Confirmación de asistencia</h2>
-      <p class="muted" style="margin-bottom:10px">Confirmá antes del <strong>1 de diciembre</strong>.</p>
-      <div class="paper">
-       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU4xhMUCOqWwXVMRIz7rO9CM_Ksx0slcGCr5oZNnCr6J_fCw/viewform?embedded=true" width="640" height="849" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+  <!--RSVP-->
+<section class="full" id="sec-rsvp">
+  <div class="block" data-aos="fade-up">
+    <h2 style="font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 5px;">Confirmación de asistencia</h2>
+    <p class="muted" style="margin-bottom:30px">Confirmá antes del 1 de diciembre.</p>
+    
+    <div class="paper" style="max-width: 550px; margin: 0 auto; text-align: left; padding: 40px; border: 1px solid #000; background: #fff;">
+
+<script>
+window.submitted = false;
+</script>
+
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+        onload="if(window.submitted === true) { 
+          document.getElementById('rsvpForm').style.display='none'; 
+          document.getElementById('successMessage').style.display='block'; 
+          window.scrollTo({top: document.getElementById('sec-rsvp').offsetTop, behavior: 'smooth'});
+        }">
+      </iframe>
+
+<form id="rsvpForm" 
+  action="https://docs.google.com/forms/d/e/1FAIpQLSfU4xhMUCOqWwXVMRIz7rO9CM_Ksx0slcGCr5oZNnCr6J_fCw/formResponse" 
+  method="POST" 
+  target="hidden_iframe" 
+  onsubmit="window.submitted=true;">
+
+        <div style="margin-bottom: 25px;">
+          <label style="display:block; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:15px; font-weight:600;">¿Podrás asistir? *</label>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <label style="font-size:15px; cursor:pointer; display:flex; align-items:center; gap:10px;">
+              <input type="radio" name="entry.877086558" value="Sí, asistiré" required style="accent-color: #000; width:18px; height:18px;"> Sí, allí estaré
+            </label>
+            <label style="font-size:15px; cursor:pointer; display:flex; align-items:center; gap:10px;">
+              <input type="radio" name="entry.877086558" value="No podré ir" style="accent-color: #000; width:18px; height:18px;"> No podré asistir
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <label style="display:block; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; font-weight:600;">Nombres y Apellidos *</label>
+          <input type="text" name="entry.1498135098" required placeholder="Ej: Maira Colman y Tomás García"
+            style="width:100%; padding:12px 0; border:none; border-bottom:1px solid #ccc; font-family:inherit; font-size:16px; outline:none; background:transparent;">
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <label style="display:block; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; font-weight:600;">Información importante / Menú</label>
+          <textarea name="entry.2058763048" placeholder="Contanos si vos o alguno de tus invitados requiere un menú especial." 
+            style="width:100%; padding:12px; border:1px solid #eee; background:#fafafa; font-family:inherit; font-size:14px; resize:none;" rows="3"></textarea>
+        </div>
+<div style="margin-bottom: 30px;">
+  <label style="display:block; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; font-weight:600;">
+    Comentarios
+  </label>
+
+  <textarea name="entry.2606285"
+    placeholder="Si querés dejarnos algún comentario..."
+    style="width:100%; padding:12px; border:1px solid #eee; background:#fafafa; font-family:inherit; font-size:14px; resize:none;"
+    rows="3"></textarea>
+</div>
+
+        <button type="submit" style="width:100%; background:#000; color:#fff; border:none; padding:18px; font-family:inherit; font-size:15px; letter-spacing:3px; cursor:pointer; text-transform:uppercase;">
+          Confirmar Asistencia
+        </button>
+
+      </form>
+
+      <div id="successMessage" style="display:none; text-align:center; padding: 40px 0;">
+        <h3 style="font-family:'Great Vibes', cursive; font-size: 42px; margin-bottom: 10px;">¡Muchas gracias!</h3>
+        <p class="muted">Tu respuesta ha sido enviada correctamente.</p>
       </div>
+      
     </div>
-  </section>
+  </div>
+</section>
    <!-- REGALOS -->
   <section class="full" id="sec-regalos">
     <div class="block" data-aos="fade-up">
