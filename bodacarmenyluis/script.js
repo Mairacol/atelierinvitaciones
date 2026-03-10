@@ -47,3 +47,59 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwX2jdjxnlsk1wHJ9sZmoHEU8JUNf_LiPGC_z8rclv5QBcevJZOVgDJiqVfakbhUbuQKQ/exec';
+const form = document.getElementById('rsvpForm');
+const thankYouMessage = document.getElementById('thankYouMessage');
+const addGuestBtn = document.getElementById('addGuest');
+const guestList = document.getElementById('guestList');
+
+// Agregar acompañantes
+if (addGuestBtn) {
+    addGuestBtn.addEventListener('click', () => {
+        const newGuest = document.createElement('div');
+        newGuest.className = 'guest-entry';
+        newGuest.innerHTML = `
+            <input type="text" name="nombre[]" placeholder="Nombre y Apellido" style="margin-top:10px" required>
+            <input type="text" name="restriccion[]" placeholder="Restricción alimentaria (opcional)">
+        `;
+        guestList.appendChild(newGuest);
+    });
+}
+
+// Enviar al Drive
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Enviando...";
+
+    const nombres = Array.from(document.querySelectorAll('input[name="nombre[]"]')).map(i => i.value);
+    const restricciones = Array.from(document.querySelectorAll('input[name="restriccion[]"]')).map(i => i.value);
+    const asistencia = document.querySelector('input[name="asistencia"]:checked').value;
+    const comentarios = document.querySelector('textarea[name="comentarios"]')?.value || "";
+
+    try {
+        const envios = nombres.map((nombre, index) => {
+            const data = new FormData();
+            data.append("nombre", nombre);
+            data.append("asistencia", asistencia);
+            data.append("restriccion", restricciones[index] || "Ninguna");
+            data.append("comentarios", comentarios);
+            
+            return fetch(scriptURL, { method: 'POST', body: data, mode: 'no-cors' });
+        });
+
+        await Promise.all(envios);
+
+        // Ocultar formulario y mostrar mensaje de Atelier
+        form.style.display = 'none';
+        if (addGuestBtn) addGuestBtn.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+        thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+
+    } catch (error) {
+        alert("Error al enviar. Intentá de nuevo.");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Confirmar";
+    }
+});

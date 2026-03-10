@@ -498,3 +498,135 @@ padding:30px 18px;
 }
 
 }
+/* =========================================
+   RSVP SECTION - ATELIER STYLE (VERDE OLIVA)
+   ========================================= */
+
+#rsvpForm {
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center; /* Mantenemos el centrado de tu diseño original */
+    padding: 20px;
+}
+
+/* Campos de texto y Textarea */
+#rsvpForm input[type="text"], 
+#rsvpForm textarea {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 25px auto;
+    display: block;
+    padding: 12px 10px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    transition: border-bottom 0.3s ease;
+}
+
+#rsvpForm input[type="text"]::placeholder,
+#rsvpForm textarea::placeholder {
+    color: #9c978f;
+    letter-spacing: 1px;
+}
+
+/* Foco en Verde Oliva */
+#rsvpForm input[type="text"]:focus, 
+#rsvpForm textarea:focus {
+    border-bottom: 1px solid #8e9a84;
+}
+
+/* Área de comentarios específica */
+#rsvpForm textarea {
+    min-height: 80px;
+    resize: none;
+    text-align: left; /* El texto largo es mejor leerlo a la izquierda */
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,0.1); /* Un marco muy sutil para el área de texto */
+}
+
+/* Grupo de Radio (Sí/No) */
+.radio-group {
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.radio-group label {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+/* Botón Agregar Acompañante */
+#addGuest {
+    display: inline-block;
+    background: none;
+    border: 1px solid #cfcac4;
+    color: #8e9a84;
+    padding: 8px 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#addGuest:hover {
+    background-color: #f9f9f9;
+    border-color: #8e9a84;
+}
+
+/* Botón Confirmar Principal (Verde Oliva) */
+#submitBtn {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px 30px;
+    border: none;
+    background: #8e9a84;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#submitBtn:hover {
+    background: #7a8672; /* Sombra del oliva */
+}
+
+#submitBtn:disabled {
+    background: #cfcac4;
+    cursor: not-allowed;
+}
+
+/* Mensaje de Agradecimiento Final */
+#thankYouMessage {
+    display: none;
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeInRSVP 1.2s ease;
+}
+
+#thankYouMessage h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: #4a4a4a;
+    letter-spacing: 1px;
+}
+
+@keyframes fadeInRSVP {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste para los nuevos campos que se agregan */
+.guest-entry {
+    animation: fadeInRSVP 0.5s ease;
+}

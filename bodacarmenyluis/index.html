@@ -88,16 +88,32 @@
         <h2>Confirma tu asistencia</h2>
         <p class="rsvp-sub">Esperamos contar con tu presencia</p>
 
-        <form id="rsvpForm">
-            <input type="text" placeholder="Nombre y Apellido" required>
+<form id="rsvpForm">
+    <div id="guestList">
+        <div class="guest-entry">
+            <input type="text" name="nombre[]" placeholder="Nombre y Apellido" required>
+            <input type="text" name="restriccion[]" placeholder="Restricción alimentaria (opcional)">
+        </div>
+    </div>
 
-            <div class="radio-group">
-                <label><input type="radio" name="attend" required> Sí</label>
-                <label><input type="radio" name="attend"> No</label>
-            </div>
+    <button type="button" id="addGuest" style="background: none; border: 1px dashed #ccc; padding: 5px; cursor: pointer; font-size: 12px; color: #666;">
+        + Agregar acompañante
+    </button>
 
-            <button type="submit">Confirmar</button>
-        </form>
+    <div class="radio-group">
+        <label><input type="radio" name="asistencia" value="Sí" required> Sí, asistiré</label>
+        <label><input type="radio" name="asistencia" value="No"> No podré ir</label>
+    </div>
+
+    <textarea name="comentarios" placeholder="Déjanos un mensaje o comentario adicional..." style="width: 100%; margin-top: 15px; padding: 10px; font-family: 'Montserrat', sans-serif; border: 1px solid #ddd;"></textarea>
+
+    <button type="submit" id="submitBtn">Confirmar</button>
+</form>
+<div id="thankYouMessage" style="display: none; text-align: center; padding: 20px;">
+    <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px;">
+        ¡Gracias por ser parte de nuestra historia!
+    </h3>
+</div>
 
         <p class="footer-text">Con amor, Carmen & Luis</p>
 
