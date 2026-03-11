@@ -79,18 +79,18 @@ function openEnvelope() {
 function openEnvelope() {
     const envelope = document.getElementById('envelope');
     const mainWrapper = document.querySelector('.main-wrapper');
+    const firstCard = document.querySelector('.invitation-card');
 
-    // 1. Abrimos el sobre
     envelope.classList.add('open');
 
-    // 2. Después de que el sobre empiece a subir, mostramos las cards
     setTimeout(() => {
         mainWrapper.classList.add('visible');
-        document.body.style.overflow = 'auto'; // Habilitamos scroll
-    }, 600); 
+        document.body.style.overflow = 'auto';
 
-    // 3. Limpiamos el DOM para que el sobre no estorbe
-    setTimeout(() => {
-        envelope.style.display = 'none';
-    }, 1500);
+        // Le damos el rebote a la tarjeta después de que aparezca
+        setTimeout(() => {
+            if(firstCard) firstCard.classList.add('bounce');
+        }, 500);
+
+    }, 800);
 }

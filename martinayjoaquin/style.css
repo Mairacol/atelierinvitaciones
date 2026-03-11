@@ -402,4 +402,57 @@ p {
         display: block;
         color: #9a804d;
     }
+    .big-date {
+    font-family: 'Montserrat' !important;
+    font-size: 2rem !important;
+    letter-spacing: 5px !important;
+    font-weight: 300;
+}
+    .side-scroll-indicator {
+        position: fixed;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        z-index: 4000;
+    }
+
+    /* Se activa cuando el sobre ya no está */
+    .side-scroll-indicator.visible {
+        opacity: 0.5;
+    }
+
+    .side-scroll-indicator .line {
+        width: 1px;
+        height: 100px;
+        background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+
+    .side-scroll-indicator .dot {
+        width: 4px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 50%;
+        margin-top: 5px;
+        animation: dropAnim 2.5s infinite ease-in-out;
+    }
+
+    @keyframes dropAnim {
+        0% { transform: translateY(-100px); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(10px); opacity: 0; }
+    }
+}
+@keyframes bounceBrief {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); } /* Sube con decisión */
+    70% { transform: translateY(-5px); }  /* Cae y rebota apenas */
+}
+
+.invitation-card.bounce {
+    animation: bounceBrief 1.5s cubic-bezier(0.36, 0, 0.66, -0.56) 2;
 }
