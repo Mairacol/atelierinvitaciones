@@ -1,0 +1,405 @@
+/* --- VARIABLES Y BASES REFINADAS --- */
+:root {
+    --gold: #C5A059;
+    --gold-muted: rgba(197, 160, 89, 0.4);
+    --blue-bridgerton: #D6E4ED; 
+    --cream: #FDFBF7;
+    --dark-text: #1a1a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--blue-bridgerton);
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-text);
+    overflow-x: hidden;
+}
+
+/* --- JARDÍN BOTÁNICO (Tu fondo original intacto) --- */
+.botanical-garden {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4vw;
+    pointer-events: none;
+}
+
+.flower-valla {
+    display: flex;
+    gap: 70px;
+    height: 100vh;
+    align-items: center;
+}
+
+.flower-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 140px;
+    height: 85vh;
+}
+
+/* Asimetría Desktop */
+.flower-valla .flower-column:nth-child(2) { margin-top: 60px; }
+.side-left .flower-column:nth-child(3),
+.side-right .flower-column:nth-child(1) {
+    margin-top: -40px;
+    width: 190px;
+}
+
+/* --- ANIMACIONES DE LAS FLORES --- */
+@keyframes fadeInFlower {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 0.9; transform: translateY(0); }
+}
+
+@keyframes brisaRealista {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(12px, -10px) rotate(3deg); }
+}
+
+.f-brisa {
+    width: 100%;
+    height: auto;
+    opacity: 0; 
+    animation: 
+        fadeInFlower 2s ease-out forwards,
+        brisaRealista 20s infinite ease-in-out 2s;
+}
+
+.flower-column:nth-child(1) .f-brisa { animation-delay: 0.2s, 2.2s; }
+.flower-column:nth-child(2) .f-brisa { animation-delay: 0.7s, 2.7s; animation-duration: 2s, 24s; }
+.flower-column:nth-child(3) .f-brisa { animation-delay: 1.2s, 3.2s; animation-duration: 2s, 18s; }
+
+/* --- CONTENEDOR DE TARJETONES --- */
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0;
+    width: 100%;
+    gap: 40px;
+}
+
+/* --- ESTILO DE CADA TARJETA (Look Boutique) --- */
+.invitation-card {
+    max-width: 500px;
+    width: 90%;
+    margin-bottom: 120px;
+    background: var(--cream);
+    padding: 90px 50px;
+    
+    /* Textura de papel hecho a mano, más sutil */
+    background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+    
+    /* Sombra etérea para que la tarjeta "vibre" con el fondo */
+    box-shadow: 0 25px 50px rgba(100, 110, 140, 0.1); 
+    
+    /* Doble marco prensado */
+    border: 1px solid rgba(0,0,0,0.03);
+    outline: 1px solid var(--gold-muted);
+    outline-offset: -20px;
+    
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+.invitation-card::after {
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 0.5px solid var(--gold-muted);
+    pointer-events: none;
+}
+
+/* --- TIPOGRAFÍA EDITORIAL --- */
+.header-monogram {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 45px;
+    letter-spacing: 3px;
+}
+
+h1 { 
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem; 
+    font-style: italic;
+    font-weight: 400; 
+    line-height: 1.1;
+    margin: 30px 0;
+    letter-spacing: -1px;
+    color: var(--dark-text); 
+}
+
+h2 { 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem; 
+    font-weight: 500;
+    letter-spacing: 6px; 
+    color: var(--gold); 
+    margin-bottom: 25px; 
+    text-transform: uppercase;
+}
+
+p { 
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+    margin-bottom: 25px; 
+    color: #444;
+}
+
+/* --- COMPONENTES --- */
+.couple-photo-container {
+    width: 100%;
+    margin: 10px 0 45px 0;
+    padding: 12px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.couple-photo {
+    width: 100%;
+    filter: sepia(0.05) contrast(1.02);
+    display: block;
+}
+
+.date-box { 
+    border-top: 1px solid var(--gold-muted); 
+    border-bottom: 1px solid var(--gold-muted); 
+    padding: 40px 0; 
+    margin: 40px 0; 
+}
+
+.big-date {
+    font-family: 'Montserrat' !important;
+    font-size: 2.5rem !important;
+    letter-spacing: 5px !important;
+    font-weight: 300;
+}
+
+.hour-text {
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    color: var(--gold);
+}
+
+.location-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.map-container {
+    width: 100%;
+    margin: 30px 0;
+    padding: 10px;
+    background: white;
+    border: 1px solid var(--gold-muted);
+    filter: grayscale(0.2) contrast(0.9);
+}
+
+.map-container iframe {
+    display: block;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.timeline li {
+    margin: 15px 0;
+    font-family: 'Playfair Display';
+    font-size: 1.2rem;
+}
+
+.timeline span {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-right: 10px;
+}
+
+/* --- BOTONES MINIMALISTAS --- */
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    margin: 12px;
+    border: 0.5px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: white;
+    letter-spacing: 5px;
+}
+
+.brand-footer {
+    margin-top: 60px;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+/* --- CONTENEDOR DE TARJETONES (Ajuste Atelier) --- */
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0;
+    width: 100%;
+    gap: 40px;
+    
+    /* El secreto: empiezan invisibles y suben un poco al aparecer */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out 0.5s; /* El 0.5s le da tiempo al sobre para subir */
+}
+
+/* Clase que activaremos con JS */
+.main-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ENVELOPE WRAPPER (Transparencia para el Jardín) --- */
+.envelope-wrapper {
+    position: fixed;
+    inset: 0;
+    /* Fondo con transparencia para ver las flores, pero no las cards */
+    background: rgba(214, 228, 237, 0.4); 
+    backdrop-filter: blur(2px); /* Un leve desenfoque al jardín para que el sobre resalte */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1), opacity 1s ease;
+}
+
+/* EL CONTENEDOR MANDA: Definimos un tamaño fijo y todo lo demás se adapta */
+.envelope {
+    position: relative;
+    width: 450px; /* Tamaño elegante para escritorio */
+    max-width: 85vw; /* Se ajusta solo en móviles */
+    aspect-ratio: 3 / 2; /* Mantiene la proporción del sobre */
+    perspective: 1500px;
+}
+
+/* LA BASE: Se ajusta al 100% del contenedor */
+.envelope-back {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Evita que se estire feo */
+    display: block;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+}
+
+/* LA SOLAPA: Debe medir EXACTAMENTE lo mismo que la base */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    transform-origin: top;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope-flap img {
+    width: 100%; 
+    height: auto;
+    display: block;
+}
+
+/* LACRE */
+.wax-seal {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.wax-seal img {
+    width: 50px; 
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.25));
+}
+
+/* TEXTO DE INSTRUCCIÓN (Mucho más abajo para que no estorbe) */
+.envelope-instruction {
+    margin-top: 80px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    color: #9a804d;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* --- ESTADO ABIERTO --- */
+.envelope-wrapper.open {
+    transform: translateY(-100vh);
+    opacity: 0;
+}
+
+.envelope-wrapper.open .envelope-flap {
+    transform: rotateX(160deg);
+}
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    /* --- AJUSTE DEL JARDÍN --- */
+    .botanical-garden {
+        padding: 0; 
+        justify-content: space-between;
+    }
+
+    .flower-column {
+        width: 45px; /* Más finas para que el sobre grande no las tape del todo */
+        display: flex !important;
+    }
+
+    .f-brisa {
+        width: 65px; /* Flores más pequeñas para aumentar la sensación de abundancia */
+        margin-bottom: -30px; /* Más juntas para que se vea más tupido */
+    }
+
+    /* --- EL SOBRE EN SU MÁXIMO ESPLENDOR --- */
+    .envelope {
+        width: 360px; /* Aumentado para máximo impacto visual */
+        max-width: 90vw; 
+        z-index: 3001;
+    }
+
+    .wax-seal img {
+        width: 42px; /* Sello más grande para que no se pierda en el sobre nuevo */
+    }
+
+    .envelope-instruction {
+        margin-top: 45px;
+        font-size: 0.65rem;
+        letter-spacing: 5px; /* Un toque más de aire para el estilo editorial */
+        width: 100%;
+        text-align: center;
+        display: block;
+        color: #9a804d;
+    }
+}

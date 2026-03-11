@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martina & Joaquin | The Royal Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="botanical-garden">
+        <div class="flower-valla side-left">
+            <div class="flower-column">
+                <img src="/martinayjoaquin/images/lavanda.png" class="f-brisa">
+                <img src="/martinayjoaquin/images/peonia.png" class="f-brisa">
+            </div>
+            <div class="flower-column">
+                <img src="/martinayjoaquin/images/lila.png" class="f-brisa">
+                <img src="/martinayjoaquin/images/rosita.png" class="f-brisa">
+            </div>
+            <div class="flower-column">
+                <img src="/martinayjoaquin/images/margarita.png" class="f-brisa">
+                <img src="/martinayjoaquin/images/tresflorcitas.png" class="f-brisa">
+            </div>
+        </div>
+
+        <div class="flower-valla side-right">
+            <div class="flower-column">
+                <img src="/martinayjoaquin/images/tresflorcitas.png" class="f-brisa">
+                <img src="/martinayjoaquin/images/margarita.png" class="f-brisa">
+            </div>
+            <div class="flower-column">
+                <img src="/martinayjoaquin/images/rosita.png" class="f-brisa">
+                <img src="/martinayjoaquin/images/lila.png" class="f-brisa">
+            </div>
+            <div class="flower-column">
+                <img src="/martinayjoaquin/images/peonia.png" class="f-brisa">
+                <img src="/martinayjoaquin/images/lavanda.png" class="f-brisa">
+            </div>
+        </div>
+    </div>
+<div class="envelope-wrapper" id="envelope">
+    <div class="envelope">
+        <img src="/martinayjoaquin/images/Base de sobre en tono crema.png" class="envelope-back" alt="Sobre Premium">
+        
+        <div class="envelope-flap">
+            <img src="/martinayjoaquin/images/Flap de sobre en textura natural.png" alt="Solapa de Papel">
+        </div>
+
+        <div class="wax-seal" onclick="openEnvelope()">
+            <img src="/martinayjoaquin/images/MARTIYJOACO.png" alt="Sello M&J">
+        </div>
+    </div>
+    <div class="envelope-instruction">Haz clic en el sello para abrir</div>
+</div>
+    
+    <div class="main-wrapper">
+        <section class="invitation-card">
+            <div class="header-monogram">M & J</div>
+            <div class="couple-photo-container">
+                <img src="/martinayjoaquin/images/martinayjoaquin.jpg" alt="Martina y Joaquín" class="couple-photo">
+            </div>
+            <h2>Dearest Reader,</h2>
+            <p>Se solicita el honor de su presencia en el evento social más esperado de la temporada.</p>
+            <h1>Martina & Joaquin</h1>
+            <p>Tienen el placer de invitarles a celebrar su unión.</p>
+        </section>
+
+        <section class="invitation-card">
+            <h2>SÁBADO</h2>
+            <div class="date-box">
+                <p class="big-date">19 . 09 . 26</p>
+                <p class="hour-text">A LAS 20:00 HORAS</p>
+            </div>
+            
+            <div class="location-info">
+                <h3>Four Seasons Hotel</h3>
+                <p>Posadas 1086, Buenos Aires</p>
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.665516709887!2d-58.3811568!3d-34.5873138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacc69755f0d%3A0x8898b17b8f97e29!2sFour%20Seasons%20Hotel%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1710000000000!5m2!1ses-419!2sar" 
+                    width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="button-group">
+                <a href="https://maps.app.goo.gl/uXpW6p6yXf6kHjY67" target="_blank" class="btn">VER UBICACIÓN</a>
+                <button class="btn" onclick="saveToCalendar()">AGENDAR FECHA</button>
+            </div>
+        </section>
+
+        <section class="invitation-card">
+            <h2>DRESS CODE</h2>
+            <p class="dress-style">Elegante Riguroso</p>
+            <p class="small-note">(Tonos pasteles y gala clásica)</p>
+            
+            <div class="divider-gold"></div>
+
+            <h2>CRONOGRAMA</h2>
+            <ul class="timeline">
+                <li><span>20:00hs</span> Recepción</li>
+                <li><span>21:30hs</span> Cena de Gala</li>
+                <li><span>23:30hs</span> Fiesta</li>
+            </ul>
+        </section>
+
+        <section class="invitation-card">
+            <h2>CONFIRMACIÓN</h2>
+            <p>Esperamos contar con su presencia antes del 30 de agosto.</p>
+            <a href="https://wa.me/tu-numero" class="btn btn-rsvp">CONFIRMAR AQUÍ</a>
+            <footer class="brand-footer">
+                ATELIER INVITACIONES © 2026
+            </footer>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
